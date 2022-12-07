@@ -16,10 +16,11 @@ const Repas = () => {
                     <div className="row mt-4">
                         <div className="col-md d-flex justify-content-between">
                             <div className="">
-                                <h3>Livreur List</h3>
+                                <h3>Repas List</h3>
                             </div>
                             <div className="">
-                                <button type="button" className="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD NEW LIVREUR</button>
+                                <i class="bi bi-eject text-info me-2 fs-5"></i>
+                                <button type="button" className="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD NEW REPAS</button>
                                 <AddRepas/>
                             </div>
                         </div>
@@ -29,42 +30,47 @@ const Repas = () => {
                         <table className="table table-bordered" id="myTable">
                             <thead>
                                 <tr style={{color: "#acacac"}}>
+                                    <th scope='col'>image</th>
                                     <th scope="col">name</th>
-                                    <th scope="col">commentair</th>
+                                    <th scope="col">description</th>
                                     <th className="text-center">operation</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
                                 <tr className="align-middle">
-                                    <th scope="row"> 1</th>
+                                    <th scope="row">1</th>
                                     <th scope="row">john</th>
                                     <td>lmalik </td>
                                     <td className="d-flex flex-row justify-content-end">
                                         <form action="" method="post">
+                                            <button className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></button>
                                             <button className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
                                 <tr className="align-middle">
-                                    <th scope="row"> 1</th>
+                                    <th scope="row">1</th>
                                     <th scope="row">john</th>
                                     <td>lmalik </td>
                                     <td className="d-flex flex-row justify-content-end">
                                         <form action="" method="post">
+                                            <button className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></button>
                                             <button className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
                                 <tr className="align-middle">
-                                    <th scope="row"> 1</th>
+                                    <th scope="row">1</th>
                                     <th scope="row">john</th>
                                     <td>lmalik </td>
                                     <td className="d-flex flex-row justify-content-end">
                                         <form action="" method="post">
+                                            <button className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></button>
                                             <button className="btn btn-outline-danger"><i className="bi bi-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
+                              
                             </tbody>
                         </table>
                     </div>
