@@ -5,15 +5,14 @@ import toastr from 'toastr';
 import "toastr/build/toastr.css"
 
 
-
-
-
 const AddLivreur = () => {
 
     const [user, setUser] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        confirmpassword:''
+    
     })
 
     const handleChange = (e) => {
@@ -75,7 +74,7 @@ const AddLivreur = () => {
                 <div className="mb-2 w-100">
                     <label className="fonts"><b>CONFIRM Password</b></label>
                 </div>
-                <input type="password" className="form-control rounded-0 border-dark" name="password" />
+                <input type="password" id="confirmpassword" className="form-control rounded-0 border-dark" name="confirmpassword" />
 
             </div>
 

@@ -42,6 +42,7 @@ const ResetPassword = () => {
                 toastr.success("We've sent you an email with a link to update your password.", {
                     positionClass: "toastr-bottom-left",
                 })
+                localStorage.removeItem('jwt_FORG')
                 navigate('/signin')
 
             })
