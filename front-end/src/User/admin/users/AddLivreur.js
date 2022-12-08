@@ -13,7 +13,8 @@ const AddLivreur = () => {
     const [user, setUser] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
+        confirmpassword:''
     })
 
     const handleChange = (e) => {
@@ -31,13 +32,14 @@ const AddLivreur = () => {
 
             .then(() => {
                 toastr.success('Creteded succefully !', {
-                    positionClass: "toastr-bottom",
+                    // positionClass: "toastr-top",
                 })
+
             })
             .catch(error => {
                 if (error.response) {
                     toastr.warning(error.response.data.error, 'Please chek Form !', {
-                        positionClass: "toastr-bottom-left",
+                        // positionClass: "toastr-top",
                     })
                 }
 
@@ -47,8 +49,9 @@ const AddLivreur = () => {
 
 
     return (
-
-        <form onSubmit={addlivreur} className="needs-validation">
+ <div className='d-flex justify-content-center flex-column  '>
+     <h1>Ajouter Livreur</h1>
+        <form onSubmit={addlivreur} className="needs-validation w-50" >
             <div className=" mb-3 font-weight-bold">
                 <label className="mb-2 fonts font-weight-bold" ><b>Username</b></label>
                 <input onChange={handleChange} id="username" type="text" className="form-control rounded-0 border-dark" name="username" />
@@ -75,7 +78,7 @@ const AddLivreur = () => {
                 <div className="mb-2 w-100">
                     <label className="fonts"><b>CONFIRM Password</b></label>
                 </div>
-                <input type="password" className="form-control rounded-0 border-dark" name="password" />
+                <input onChange={handleChange} type="password" className="form-control rounded-0 border-dark" name="confirmpassword" id="confirmpassword" />
 
             </div>
 
@@ -87,7 +90,7 @@ const AddLivreur = () => {
             </div>
             {/* {JSON.stringify(user)} */}
         </form>
-
+        </div>
     )
 
 }
