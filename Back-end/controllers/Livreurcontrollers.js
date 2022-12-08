@@ -9,6 +9,7 @@ const CreateLivreur = async (req, res) => {
     const chekemail = await User.findOne({ email: req.body.email })
 
     if (chekemail){
+    
     return res.status(400).json({
         error: 'Email Not Found '
     })
@@ -26,5 +27,23 @@ const CreateLivreur = async (req, res) => {
         }
     }
 }
+const DisplayDelivery = async (req,res)=>{
+    User.find({role:'livreur'})
+    .then((delivery) => {
+        res.json(delivery)
+    })
+    .catch()
+}
 
-module.exports = { CreateLivreur }
+
+const DeleteDelivery = async(req,res)=>{
+    const {id} = req.params
+    User.findByIdAndRemove(id)
+    .then((e)=>{
+       res.send('removed') 
+    })
+    .catch((e)=>{
+        res.send(' not removed') 
+    })
+}
+module.exports = { CreateLivreur,DisplayDelivery,DeleteDelivery }

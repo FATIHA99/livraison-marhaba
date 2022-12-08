@@ -3,18 +3,20 @@ import { API_URL } from '../../../config';
 import axios from 'axios';
 import toastr from 'toastr';
 import "toastr/build/toastr.css"
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
 const AddLivreur = () => {
+    const navigate = useNavigate()
 
     const [user, setUser] = useState({
         username: '',
         email: '',
         password: '',
-        confirmpassword:''
+        confirmpassword: ''
     })
 
     const handleChange = (e) => {
@@ -33,7 +35,9 @@ const AddLivreur = () => {
             .then(() => {
                 toastr.success('Creteded succefully !', {
                     // positionClass: "toastr-top",
+                    
                 })
+                navigate('/users')
 
             })
             .catch(error => {
@@ -49,47 +53,47 @@ const AddLivreur = () => {
 
 
     return (
- <div className='d-flex justify-content-center flex-column  '>
-     <h1>Ajouter Livreur</h1>
-        <form onSubmit={addlivreur} className="needs-validation w-50" >
-            <div className=" mb-3 font-weight-bold">
-                <label className="mb-2 fonts font-weight-bold" ><b>Username</b></label>
-                <input onChange={handleChange} id="username" type="text" className="form-control rounded-0 border-dark" name="username" />
+        <div className='d-flex justify-content-center flex-column  '>
+            <h1>Ajouter Livreur</h1>
+            <form onSubmit={addlivreur} className="needs-validation w-50" >
+                <div className=" mb-3 font-weight-bold">
+                    <label className="mb-2 fonts font-weight-bold" ><b>Username</b></label>
+                    <input onChange={handleChange} id="username" type="text" className="form-control rounded-0 border-dark" name="username" />
 
-            </div>
-
-            <div className="mb-3">
-                <div className="mb-2 w-100">
-                    <label className="fonts"><b>Email</b></label>
                 </div>
-                <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
 
-            </div>
+                <div className="mb-3">
+                    <div className="mb-2 w-100">
+                        <label className="fonts"><b>Email</b></label>
+                    </div>
+                    <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
 
-            <div className="mb-3">
-                <div className="mb-2 w-100">
-                    <label className="fonts"><b>Password</b></label>
                 </div>
-                <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
 
-            </div>
+                <div className="mb-3">
+                    <div className="mb-2 w-100">
+                        <label className="fonts"><b>Password</b></label>
+                    </div>
+                    <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
 
-            <div className="mb-3">
-                <div className="mb-2 w-100">
-                    <label className="fonts"><b>CONFIRM Password</b></label>
                 </div>
-                <input onChange={handleChange} type="password" className="form-control rounded-0 border-dark" name="confirmpassword" id="confirmpassword" />
 
-            </div>
+                <div className="mb-3">
+                    <div className="mb-2 w-100">
+                        <label className="fonts"><b>CONFIRM Password</b></label>
+                    </div>
+                    <input onChange={handleChange} type="password" className="form-control rounded-0 border-dark" name="confirmpassword" id="confirmpassword" />
 
-            <div className="d-flex align-items-center fonts pb-3">
+                </div>
 
-                <button type="submit" value="Submit" className=" w-100 bg-black text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 "  >
-                    <b>CREER UN COMPTE</b>
-                </button>
-            </div>
-            {/* {JSON.stringify(user)} */}
-        </form>
+                <div className="d-flex align-items-center fonts pb-3">
+
+                    <button type="submit" value="Submit" className=" w-100 bg-black text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 "  >
+                        <b>CREER UN COMPTE</b>
+                    </button>
+                </div>
+                {/* {JSON.stringify(user)} */}
+            </form>
         </div>
     )
 
