@@ -7,8 +7,6 @@ const App = ()=> {
     <div>
       <Routs/>
     </div>
-    
-
   );
 }
 

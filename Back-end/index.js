@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const expressValidator = require('express-validator');
 require('dotenv').config();
+const routecategorie = require('./routes/categorie')
 
 
 const port = process.env.PORT;
@@ -19,7 +20,7 @@ app.use(cors());
 
 const router = require('./routes/user');
 app.use('/', router)
-
+app.use('/api',routecategorie)
 
 
 mongoose.connect(process.env.DB)
