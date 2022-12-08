@@ -17,5 +17,7 @@ route.post('/resetpassword/:token',user.resetpassword);
 route.get('/verify/:token',user.verify);
 
 route.post('/addlivreur',userSignupValidator ,livreur.CreateLivreur)
+route.get('/DisplayDelivery',livreur.DisplayDelivery)
+route.delete('/DeleteDelivery/:id',livreur.DeleteDelivery)
 
 module.exports = route
