@@ -15,6 +15,7 @@ import PrivateLivreurRoute from '../helpers/PrivateLivreurRoute';
 import NotAcces from './NotAcces'
 import DashboardAdmin from "../User/admin/Statistique/Dashboard.jsx";
 import Repas from "../User/admin/Repas/Repas.jsx";
+import Categorie from '../User/admin/categorie/categorie';
 
 
 
@@ -27,6 +28,10 @@ const Routs = () => {
       {/* <Navbar /> */}
 
       <Routes>
+         <Route element={<AdminDashboard/>}>
+          <Route path='/categories' element={<Categorie/>} />
+         </Route>
+
         <Route path={'/dash'} element={<DashboardAdmin/>}/>
         <Route path={'/repas'} element={<Repas/>}/>
 
