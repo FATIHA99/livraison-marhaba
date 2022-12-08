@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-// import { ToastContainer,toast } from "react-toastify";
 import toastr from "toastr";
 import { API_URL } from '../../../config';
 import "toastr/build/toastr.css";
-// import Categorie from "../../../../back-end/models/Categorie";
 function Tail() {
   const [categorie, setCategorie] = useState([]);
 
@@ -34,19 +32,13 @@ function Tail() {
     event.preventDefault();
 
     axios.delete(`${API_URL}/api/categorie/delete/${id}`)
-    .then((res) => {
+      .then((res) => {
         window.location.reload(false);
         toastr.success('categorie supprimé', {
-            positionClass: "toastr-bottom-left",
+          positionClass: "toastr-bottom-left",
         })
-    })
-    //   .then((e) => {
-    //     window.location.reload(false);
-    //     // toastr.success('categorie supprimé');
-    //     toastr.success('categorie supprimé', {
-    //         positionClass: "toastr-bottom-left",
-    //     })
-    //   })
+      })
+
   }
   // update
   function updateId(id, event) {
@@ -71,13 +63,13 @@ function Tail() {
   function submitForm(event) {
     event.preventDefault();
     axios.post(`${API_URL}/api/categories`, dataToadd)
-    .then((res) => {
+      .then((res) => {
         let message = res.data.message;
         window.location.reload(false);
         toastr.success(message, {
-            positionClass: "toastr-bottom-left",
+          positionClass: "toastr-bottom-left",
         })
-    })
+      })
       .catch()
   }
 
@@ -86,7 +78,7 @@ function Tail() {
 
   return (
     <div >
-   
+
       <h1 className="text-3xl font-bold font-mono "> Repas Categories </h1>
 
       <form >
@@ -100,7 +92,7 @@ function Tail() {
                 <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" class="form-control" id="exampleInputPassword1" />
               </div>
 
-              <button type="submit" className="btn btn-warning" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+              <button type="submit" className="btn   btn-warning" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
             </div>
           </div>
           : <div> no result</div>
@@ -121,16 +113,14 @@ function Tail() {
             </thead>
             <tbody className="bg-white">
               {categorie.map((cat) => (
-                //  <tr key={cat._id} >
-                <tr className="align-middle">
-
+                <tr key={cat._id} className="align-middle">
                   <td className="d-none">{cat._id}</td>
                   <td className="">{cat.label}</td>
                   <td className="">{cat.description}</td>
                   <td className="d-flex flex-row justify-content-end">
                     <div>
                       <td> <button className="btn btn-outline-danger" onClick={(e) => deleteId(cat._id, e)} > <i className="bi bi-trash"></i></button> </td>
-                      <td> <button   className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id, e)} ><i class="bi bi-pencil-square"></i> </button> </td>
+                      <td> <button className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id, e)} ><i class="bi bi-pencil-square"></i> </button> </td>
                     </div>
                   </td>
                 </tr>
@@ -142,13 +132,7 @@ function Tail() {
         </div>
 
 
-
-
-
-
         {/* form  add  */}
-
-
         <form onSubmit={submitForm} className="col-4">
           <div class="mb-3">
             <label for="exampleInputEmail1" className="form-label">label</label>
@@ -156,20 +140,14 @@ function Tail() {
           </div>
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label">description</label>
-            <textarea name="description" onChange={handleInput} placeholder="description"  className="form-control"  id="exampleInputPassword1"  cols="30" rows="10"></textarea>
-            {/* <input type="text" name='description' onChange={handleInput} className="form-control" placeholder="description" /> */}
+            <textarea name="description" onChange={handleInput} placeholder="description" className="form-control" id="exampleInputPassword1" cols="30" rows="10"></textarea>
           </div>
           <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-warning">Ajouter</button>
-
+            <button type="submit" className="btn btn-warning">Ajouter</button>
           </div>
         </form>
 
       </div>
-
-               
-      
-      
     </div>
   )
 

@@ -16,13 +16,13 @@ import NotAcces from './NotAcces'
 import DashboardAdmin from "../User/admin/Statistique/Dashboard.jsx";
 import Repas from "../User/admin/Repas/Repas.jsx";
 import Categorie from '../User/admin/categorie/categorie';
+import Users from '../User/admin/users/users'
+import AddLivreur from './admin/users/AddLivreur';
 
 
 
 const Routs = () => {
   return (
-
-
     <Router>
 
       {/* <Navbar /> */}
@@ -30,6 +30,8 @@ const Routs = () => {
       <Routes>
          <Route element={<AdminDashboard/>}>
           <Route path='/categories' element={<Categorie/>} />
+          <Route path='/users' element={<Users/>} />
+          <Route path='/AddLivreur' element={<AddLivreur/>} />
          </Route>
 
         <Route path={'/dash'} element={<DashboardAdmin/>}/>
