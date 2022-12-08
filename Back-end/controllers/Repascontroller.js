@@ -31,5 +31,43 @@ const addRepas = (req,res)=>{
 
 }
 
+const getAllrepas = (req,res)=>{
 
-module.exports = {addRepas}
+    repas.find().then(e=>{
+        res.send(e)
+    }).catch((error)=>{
+        res.send(error)
+    })
+}
+
+const getOnerepas = (req,res)=>{
+
+    const id = req.params.id;
+    repas.findOne({_id : id}).then((data)=>{
+        res.send(data)
+    }).catch((error)=>{
+        res.send(error)
+    })
+}
+
+const updateRepas = (req,res)=>{
+    const {body} = req
+    const id = req.params.id
+    repas.updateOne({_id : id},{...body}).then((data)=>{
+        res.send('updated success')
+    }).catch((error)=>{
+        res.send(error)
+    })
+}
+
+const deletRepas = (req,res)=>{
+    const id = req.params.id;
+    repas.findOneAndRemove(id).then((e)=>{
+        res.send('deleted repas avec success')
+    }).catch((error)=>{
+        res.send(error)
+    })
+} 
+
+
+module.exports = {addRepas,getAllrepas,getOnerepas,updateRepas,deletRepas}
