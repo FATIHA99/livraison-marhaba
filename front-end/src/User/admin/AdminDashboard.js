@@ -7,29 +7,20 @@ import { NavLink,Outlet} from "react-router-dom";
 import "./sideBar/side.css";
 import Sidebar from './sideBar/Sidebar';
 const AdminDashboard = () => {
-
-
-    
     return (
         
         <main className="container-fluid bg-white">
             <div className="row d-flex flex-nowrap">
                 <Sidebar/>
-
-
-
                 <div className="col">
                     <div className="row">
                         <Navbar />
                     </div>
-                    {/* <Categorie /> */}
                     <Outlet/>
                 </div>
 
             </div>
         </main>
-
     )
 }
-
 export default AdminDashboard
