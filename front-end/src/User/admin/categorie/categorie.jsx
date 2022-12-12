@@ -81,28 +81,28 @@ function Tail() {
 
       <h1 className="text-3xl font-bold font-mono "> Repas Categories </h1>
 
-      <form >
+      <form className= "shadow-sm p-3 mb-5 bg-body rounded " >
         {oneCat ?
           <div>
-            <div key={oneCat._id} className="d-flex container  ">
-              <div class="mb-3 me-5">
-                <input type="text" name="label" value={oneCat.label} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="label" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <div key={oneCat._id} className="d-flex  container   ">
+              <div className="mb-3 me-5">
+                <input type="text" name="label" value={oneCat.label} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="label" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
               </div>
-              <div class="mb-3">
-                <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" class="form-control" id="exampleInputPassword1" />
+              <div className="mb-3">
+                <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
               </div>
 
-              <button type="submit" className="btn   btn-warning" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+              <button type="submit" className="btn btn-warning m-2" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
             </div>
           </div>
           : <div> no result</div>
         }
       </form>
 
-      <div className="d-flex flex-row row container  ">
+      <div className="d-flex flex-row row container  gap-3  ">
         {/* table */}
         <div className="row overflow-auto  col-8">
-          <table className="table table-bordered" id="myTable">
+          <table className="table table-bordered shadow-lg p-3 mb-5 bg-body rounded" id="myTable">
             <thead>
               <tr style={{ color: "#acacac" }}>
                 <th scope='col' className=" d-none text-center">id</th>
@@ -133,14 +133,14 @@ function Tail() {
 
 
         {/* form  add  */}
-        <form onSubmit={submitForm} className="col-4">
+        <form onSubmit={submitForm} className="col-4 shadow-lg p-3 mb-5 bg-body rounded ">
           <div class="mb-3">
             <label for="exampleInputEmail1" className="form-label">label</label>
             <input type="text" name='label' onChange={handleInput} className="form-control" placeholder="label" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label">description</label>
-            <textarea name="description" onChange={handleInput} placeholder="description" className="form-control" id="exampleInputPassword1" cols="30" rows="10"></textarea>
+            <textarea name="description" onChange={handleInput} placeholder="description" className="form-control" id="exampleInputPassword1" cols="30" rows="5"></textarea>
           </div>
           <div className="d-flex justify-content-end">
             <button type="submit" className="btn btn-warning">Ajouter</button>
