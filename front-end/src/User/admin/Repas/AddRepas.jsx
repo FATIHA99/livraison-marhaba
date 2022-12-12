@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React,{useState} from 'react'
 import { API_URL } from '../../../config'
+import { ToastContainer, toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
 
 const AddRepas = () => {
+    // const navigate = useNavigate()
     const [data, setData] = useState({
         name : '',
         description : '',
@@ -18,7 +21,9 @@ const AddRepas = () => {
     const onSub = (e)=>{
         e.preventDefault()
         axios.post(API_URL+'/repas/add',data).then((e)=>{
-            console.log(e.data)
+            // console.log(e.data)
+            toast.success('created repas avec success')
+
         }).catch((error)=>{
             console.log(error)
         })
@@ -61,6 +66,7 @@ const AddRepas = () => {
                 </div>
             </div>
         </div>
+        <ToastContainer/>
     </div>
   )
 }
