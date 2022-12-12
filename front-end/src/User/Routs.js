@@ -18,6 +18,7 @@ import Repas from "../User/admin/Repas/Repas.jsx";
 import Categorie from '../User/admin/categorie/categorie';
 import Users from '../User/admin/users/users'
 import AddLivreur from './admin/users/AddLivreur';
+import Commands from './livreur/Commands';
 
 
 
@@ -33,6 +34,12 @@ const Routs = () => {
           <Route path='/users' element={<Users/>} />
           <Route path='/AddLivreur' element={<AddLivreur/>} />
          </Route>
+
+         <Route element={<LivreurDashboard/>}>
+          <Route path='/commands' element={<Commands/>} />
+        
+         </Route>
+
 
         <Route path={'/dash'} element={<DashboardAdmin/>}/>
         <Route path={'/repas'} element={<Repas/>}/>
