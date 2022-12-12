@@ -30,7 +30,7 @@ route.post('/repas/add',repas.addRepas)
 route.get('/repas',repas.getAllrepas)
 route.get('/repas/getone/:id',repas.getOnerepas)
 route.post('/repas/update/:id',repas.updateRepas)
-route.post('/repas/delet/:id',repas.deletRepas)
+route.post('/repas/delete/:id',repas.deletRepas)
 
 
 // end routes des repas
