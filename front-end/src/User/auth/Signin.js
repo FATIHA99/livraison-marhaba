@@ -37,7 +37,12 @@ const Signin = () => {
                 })
        
                 localStorage.setItem('jwt_info', JSON.stringify(res.data))
-                navigate('/')
+                if(res.data.user.role === "admin"){
+                    navigate('/admin/dashboard')
+                }else{
+                    navigate('/')
+                }
+                
             })
             .catch(error => {
                 if (error.response) {

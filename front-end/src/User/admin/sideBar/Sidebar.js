@@ -1,8 +1,26 @@
 import React from 'react'
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate , Link } from "react-router-dom";
 import "./side.css";
+import axios from 'axios';
+import { API_URL } from '../../../config';
+import toastr from 'toastr';
+import { isAunthenticated } from '../../../helpers/Auth';
 
 const Sidebar = () => {
+const { user } = isAunthenticated()
+ const navigate = useNavigate()
+    const signout = () => {
+        axios.get(`${API_URL}/signout`)
+            .then(() => {
+                toastr.success('Logout succefully !', {
+                    positionClass: "toastr-bottom"
+                })
+
+                localStorage.removeItem('jwt_info')
+                navigate('/signin')
+            })
+            .catch()
+    }
   return (
     <>
         <input type="checkbox" id="menu" />
@@ -11,8 +29,8 @@ const Sidebar = () => {
         <h2 className="text-start text-dark"><span className="text-warning">[</span>Livraison</h2>
         <br />
         <img className="rounded rounded-circle w-50" src={require("../images/pic-1.png")} />
-        <h4>name</h4>
-        <p className="text-info">Admin</p>
+        <h4>{user.username}</h4>
+        <p className="text-info">{user.role}</p>
         <hr />
         <nav className="text-start p-2">
             <NavLink className="nav-link p-2" to={"/dash"}>
@@ -40,9 +58,9 @@ const Sidebar = () => {
             </NavLink>
             <br />
         </nav>
-        <NavLink to={"/logout"} className="nav-link p-1">
+        <Link  onClick={signout} to={"#"} className="nav-link p-1">
             <i className="bi bi-box-arrow-right me-2 fs-5"></i> Logout
-        </NavLink>
+        </Link>
     </div>
     </>
   )
