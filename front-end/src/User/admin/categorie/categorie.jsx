@@ -17,7 +17,7 @@ function Tail() {
 
   // dispaly all  
   const fetchCategorie = async () => {
-    const all = await axios.get(`${API_URL}/api/categories`);
+    const all = await axios.get(`${API_URL}/categories`);
     setCategorie(all.data)
   }
 
@@ -91,8 +91,7 @@ function Tail() {
               <div className="mb-3">
                 <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
               </div>
-
-              <button type="submit" className="btn btn-warning m-2" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+              <button type="submit" className="btn btn-warning" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
             </div>
           </div>
           : <div> no result</div>

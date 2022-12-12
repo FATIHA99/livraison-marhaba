@@ -1,6 +1,17 @@
 const repas = require('../models/Repasmodels')
-const fdable = require('formidable')
-const http = require('http')
+const multer = require('multer')
+
+// const storage = multer.diskStorage({
+//     destination : function (req,file,cb) {
+//         cb(null,'./images')
+//     },
+//     filename : function (req,file,cb) {
+//         cb(null,file.originalname)        
+//     }
+// })
+
+// let upload = multer({storage : storage})
+
 
 
 const addRepas = (req,res)=>{
@@ -12,16 +23,17 @@ const addRepas = (req,res)=>{
     //             + '/'+files.profilePic.name
     //     let rawData = fs.readFileSync(oldPath)
     // })
-    http.createServer(function (req,res) {
-        if (req.url == '/fileupload') {
-            let form = new fdable.IncomingForm();
-            form.parse(req,function (err,field,files) {
-                res.send('file uploaded')
-            })
+    // http.createServer(function (req,res) {
+    //     if (req.url == '/fileupload') {
+    //         let form = new fdable.IncomingForm();
+    //         form.parse(req,function (err,field,files) {
+    //             res.send('file uploaded')
+    //         })
             
-        }
+    //     }
         
-    })
+    // })
+
 
     repas.create({...body}).then(e=>{
         res.send(e)

@@ -21,7 +21,7 @@ const Dashboard = () => {
                             </div>
                             <div className="col-md col-sm-6 p-2">
                                 <div className="p-2" style={{background: "#ee94cb",borderRadius: "6px"}}>
-                                    <i className="bi bi-bookmark fs-3" style={{color: "#f33d9e"}}></i>
+                                    <i className="bi bi-file-earmark-bar-graph fs-3" style={{color: "#f33d9e"}}></i>
                                     <p>Categories</p>
                                     <p className="text-end fw-bold fs-5">10</p>
                                 </div>
