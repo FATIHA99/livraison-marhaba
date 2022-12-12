@@ -6,9 +6,12 @@ const CommandeShema = new mongoose.Schema({
         type: Date, 
         default: Date.now
     },
-    user_id:[
-        {type: Schema.Types.ObjectId, ref: 'users'}
-    ],
+    id_user: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "users"
+        }
+      ],
     username:{
         type:String
     },

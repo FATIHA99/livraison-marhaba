@@ -1,6 +1,7 @@
 const express = require("express");
 const user = require('../controllers/Usercontrollers');
-const livreur = require('../controllers/Livreurcontrollers')
+const livreur = require('../controllers/Livreurcontrollers');
+const commande = require('../controllers/Commandecontrollers');
 const {requireSignIn} = require('../middlewares/auth');
 const {chekrole} = require('../middlewares/auth');
 const {userSignupValidator } = require('../middlewares/userValidator');
@@ -36,4 +37,11 @@ route.post('/repas/delete/:id',repas.deletRepas)
 // end routes des repas
 
 
+
+// routes des commandes
+
+route.post('/commande/addCommande',commande.addCommande)
+
+
+//end routes des commandes 
 module.exports = route
