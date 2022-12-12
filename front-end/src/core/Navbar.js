@@ -25,8 +25,6 @@ const Navbar = (props) => {
                 navigate('/signin')
             })
             .catch()
-
-
     }
 
 

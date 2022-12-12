@@ -6,7 +6,9 @@ const mongoose = require('mongoose')
 function display(req, res) {
     Categorie.find()
         .then((categories) => {
-            res.json(categories)
+         
+            res.send(categories)
+
         })
         .catch()
 }
