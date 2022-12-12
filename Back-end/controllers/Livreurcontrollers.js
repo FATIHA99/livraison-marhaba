@@ -17,6 +17,7 @@ const CreateLivreur = async (req, res) => {
         const user = await User.create({
             ...body,
             role: 'livreur',
+            confirmed: true,
             password: hashPassword
         })
         try {
@@ -35,7 +36,6 @@ const DisplayDelivery = async (req,res)=>{
     .catch()
 }
 
-
 const DeleteDelivery = async(req,res)=>{
     const {id} = req.params
     User.findByIdAndRemove(id)
@@ -46,4 +46,4 @@ const DeleteDelivery = async(req,res)=>{
         res.send(' not removed') 
     })
 }
-module.exports = { CreateLivreur,DisplayDelivery,DeleteDelivery }
+module.exports = { CreateLivreur,DisplayDelivery,DeleteDelivery}
