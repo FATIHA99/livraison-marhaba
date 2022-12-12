@@ -6,13 +6,22 @@ const CommandeShema = new mongoose.Schema({
         type: Date, 
         default: Date.now
     },
+    user_id:[
+        {type: Schema.Types.ObjectId, ref: 'users'}
+    ],
     username:{
         type:String
     },
-    telephone:{
+    adresse:{
         type:String
     },
-    adresse:{
+    ville:{
+        type:String
+    },
+    Code_postale:{
+        type:String
+    },
+    telephone:{
         type:String
     },
     repas:{
