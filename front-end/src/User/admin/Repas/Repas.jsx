@@ -5,6 +5,7 @@ import Sidebar from '../sideBar/Sidebar'
 import AddRepas from './AddRepas.jsx'
 import { API_URL } from "../../../config";
 import {ToastContainer,toast} from "react-toastify";
+import './repas.css'
 
 
 const Repas = () => {
@@ -48,12 +49,13 @@ const Repas = () => {
                             </div>
                             <div className="">
                                 <i class="bi bi-eject text-info me-2 fs-5"></i>
-                                <button type="button" className="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD NEW REPAS</button>
-                                <AddRepas/>
+                                <label htmlFor="adds" className='btn btn-info text-white'>ADD NEW REPAS</label>
                             </div>
                         </div>
                     </div>
                     <hr/>
+                    <input type="checkbox" class="d-none" id="adds"/>
+                    <AddRepas/>
                     <div style={{width: "99%", margin: "auto"}} className="row overflow-auto">
                         <table className="table table-bordered" id="myTable">
                             <thead>
@@ -70,13 +72,13 @@ const Repas = () => {
                                 {data.map((repas)=>(
                                 <tr className="align-middle">
                                     <td>{repas._id}</td>
-                                    <td>{repas.image}</td>
+                                    {/* <td>{repas.image}</td> */}
                                     <td>{repas.name}</td>
                                     <td >{repas.description}</td>
                                     <td>{repas.price}</td>
                                     <td>{repas.categorie}</td>
                                     <td className="d-flex flex-row justify-content-end">
-                                        <div>
+                                        <div className='text-nowrap'>
                                             <button className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></button>
                                             <button className="btn btn-outline-danger" onClick={(e)=>deleteRepas(repas._id,e)}><i className="bi bi-trash"></i></button>
                                         </div>

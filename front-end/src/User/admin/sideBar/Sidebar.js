@@ -5,6 +5,7 @@ import axios from 'axios';
 import { API_URL } from '../../../config';
 import toastr from 'toastr';
 import { isAunthenticated } from '../../../helpers/Auth';
+import img from "../images/pic-1.png";
 
 const Sidebar = () => {
 const { user } = isAunthenticated()
@@ -28,7 +29,7 @@ const { user } = isAunthenticated()
         <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
         <h2 className="text-start text-dark"><span className="text-warning">[</span>Livraison</h2>
         <br />
-        <img className="rounded rounded-circle w-50" src={require("../images/pic-1.png")} />
+        <img className="rounded rounded-circle w-50" src={img} />
         <h4>{user.username}</h4>
         <p className="text-info">{user.role}</p>
         <hr />
@@ -61,7 +62,7 @@ const { user } = isAunthenticated()
         <Link  onClick={signout} to={"#"} className="nav-link p-1">
             <i className="bi bi-box-arrow-right me-2 fs-5"></i> Logout
         </Link>
-    </div>
+        </div>
     </>
   )
 }

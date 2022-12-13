@@ -1,0 +1,13 @@
+.form {
+    display: none;
+}
+
+#adds:checked+.form {
+    display: block;
+}
+
+@media (max-width:991px) {
+    .form #form {
+        flex-direction: column;
+    }
+}

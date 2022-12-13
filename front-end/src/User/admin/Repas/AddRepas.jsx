@@ -29,45 +29,35 @@ const AddRepas = () => {
         })
     }
   return (
-    <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">ADD new repas</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className='form'>
+            <form method="POST" className='mt-2 d-flex justify-content-between' encType='multipart/form-data' id='form'>
+                <div className="mb-3">
+                    <label className="form-label">Name</label>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='name' name="name" required/>
                 </div>
-                <div className="modal-body">
-                    <form action="#" method="POST" encType='multipart/form-data'>
-                        <div className="mb-3">
-                            <label className="form-label">Name</label>
-                            <input type="text" onChange={handlechange} className="form-control" name="name" required/>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">description</label>
-                            <input type="text" onChange={handlechange} className="form-control" name="description" required/>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">price</label>
-                            <input type="text" onChange={handlechange} className="form-control" name="price" required/>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">categorie</label>
-                            <input type="text" onChange={handlechange} className="form-control" name="categorie" required/>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">image</label>
-                            <input type="file" onChange={handlechange} className="form-control" name="image" multiple required/>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" onClick={onSub} className="btn btn-primary">Save changes</button>
-                        </div>
-                    </form>
+                <div className="mb-3">
+                    <label className="form-label">description</label>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='description' name="description" required/>
                 </div>
-            </div>
+                <div className="mb-3">
+                    <label className="form-label">price</label>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='price' name="price" required/>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">categorie</label>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='categorie' name="categorie" required/>
+                </div>
+                <div className="mb-3">
+                    <label className="form-label">image</label>
+                    <input type="file" onChange={handlechange} className="form-control" name="image" multiple required/>
+                </div>
+                <div className='mt-2'>
+                    <button type="button" onClick={onSub} className="btn btn-info text-white mt-4">AJOUTER</button>
+                </div>
+            </form>
+            <ToastContainer/>
+            <hr />
         </div>
-        <ToastContainer/>
-    </div>
   )
 }
 
