@@ -37,11 +37,15 @@ route.post('/repas/delete/:id',repas.deletRepas)
 // end routes des repas
 
 
-
 // routes des commandes
 
 route.post('/commande/addCommande',commande.addCommande)
 
 
 //end routes des commandes 
+
+
+
+
+
 module.exports = route
