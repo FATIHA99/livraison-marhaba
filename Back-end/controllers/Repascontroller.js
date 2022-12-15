@@ -74,7 +74,7 @@ const updateRepas = (req,res)=>{
 
 const deletRepas = (req,res)=>{
     const id = req.params.id;
-    repas.findOneAndRemove(id).then((e)=>{
+    repas.findByIdAndDelete(id).then((e)=>{
         res.send('deleted repas avec success')
     }).catch((error)=>{
         res.send(error)
