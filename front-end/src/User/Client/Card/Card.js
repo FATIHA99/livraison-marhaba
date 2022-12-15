@@ -1,6 +1,27 @@
-import React from 'react'
+import React, {useState } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../../config';
+
+
 
 const Card = () => {
+    
+    const [commande, setCommande] = useState({
+        username:'',
+        adresse:'',
+        ville:'',
+        Code_postale:'' ,
+        telephone:'',
+        repas:'',
+        quantity:'',
+        total:'',
+    })
+
+    const handleChange = (e) => {
+        setCommande({...commande, [e.target.id]: [e.target.value]})
+    }
+
+
     return (
 
         <main className="container">
@@ -38,7 +59,7 @@ const Card = () => {
                                     </td>
                                     <td>
                                         <button type="button" className="btn btn-link btn-sm btn-rounded ps-4">
-                                            <i className="fa-solid text-secondary fa-trash-can" style="font-size: 1.4rem;"></i>
+                                            <i className="fa-solid text-secondary fa-trash-can" style={{FontSize: "1.4rem"}}></i>
                                         </button>
                                     </td>
                                 </tr>
