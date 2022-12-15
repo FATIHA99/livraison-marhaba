@@ -4,7 +4,7 @@ const EditRepas = () => {
   return (
     <div className="card mt-5 col-8 mx-auto">
         <div className="card-header">
-            UPDATE REPAS
+            <b>UPDATE REPAS</b>
         </div>
         <form className='card-body' encType='multipart/form-data'>
             <div class="row">
