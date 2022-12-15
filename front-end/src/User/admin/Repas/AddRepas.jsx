@@ -2,6 +2,7 @@ import axios from 'axios'
 import React,{useState} from 'react'
 import { API_URL } from '../../../config'
 import { ToastContainer, toast } from "react-toastify";
+import './repas.css'
 // import { useNavigate } from "react-router-dom";
 
 const AddRepas = () => {
