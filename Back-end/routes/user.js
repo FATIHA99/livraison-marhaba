@@ -40,7 +40,8 @@ route.get('/repas/delete/:id',repas.deletRepas)
 // routes des commandes
 
 route.post('/commande/addCommande',commande.addCommande)
-
+route.get('/commandes',commande.displayCommandes)
+route.put('/commandes/updateStatus/:id',commande.updateStatus)
 
 //end routes des commandes 
 

@@ -39,14 +39,13 @@ const Routs = () => {
           <Route path='/EditRepas/:id' element={<EditRepas/>}/>
          </Route>
 
-         <Route element={<LivreurDashboard/>}>
-          <Route path='/commands' element={<Commands/>} />
-        
-         </Route>
+        <Route element={<LivreurDashboard />}>
+          <Route path='/commandes' element={<Commands />} />
+        </Route>
 
 
-        <Route path={'/dash'} element={<DashboardAdmin/>}/>
-        <Route path={'/repas'} element={<Repas/>}/>
+        <Route path={'/dash'} element={<DashboardAdmin />} />
+        <Route path={'/repas'} element={<Repas />} />
 
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Home />} />

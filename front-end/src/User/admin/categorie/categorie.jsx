@@ -49,7 +49,7 @@ function Tail() {
       .then((e) => {
         // window.location.reload(false);
         toastr.success('categorie modifié');
-        console.log(id)
+
       })
   }
 
