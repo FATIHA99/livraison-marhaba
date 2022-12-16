@@ -66,15 +66,15 @@ const updateRepas = (req,res)=>{
     const {body} = req
     const id = req.params.id
     repas.updateOne({_id : id},{...body}).then((data)=>{
-        res.send('updated success')
+        res.status(200).send('updated success')
     }).catch((error)=>{
-        res.send(error)
+        res.status(401).send(error)
     })
 }
 
 const deletRepas = (req,res)=>{
     const id = req.params.id;
-    repas.findOneAndRemove(id).then((e)=>{
+    repas.findByIdAndDelete(id).then((e)=>{
         res.send('deleted repas avec success')
     }).catch((error)=>{
         res.send(error)

@@ -121,7 +121,7 @@ function Tail() {
                   <td className="d-flex flex-row justify-content-end">
                     <div>
                       <td> <button className="btn btn-outline-danger" onClick={(e) => deleteId(cat._id,e)} > <i className="bi bi-trash"></i></button> </td>
-                      <td> <button className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id,e)} ><i class="bi bi-pencil-square"></i> </button> </td>
+                      <td> <button className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id,e)} ><i className="bi bi-pencil-square"></i> </button> </td>
                     </div>
                   </td>
                 </tr>
@@ -135,12 +135,12 @@ function Tail() {
 
         {/* form  add  */}
         <form onSubmit={submitForm} className="col-4 shadow-lg p-3 mb-5 bg-body rounded ">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" className="form-label">label</label>
+          <div className="mb-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">label</label>
             <input type="text" name='label' onChange={handleInput} className="form-control" placeholder="label" id="exampleInputEmail1" aria-describedby="emailHelp" />
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">description</label>
+            <label htmlFor="exampleInputPassword1" className="form-label">description</label>
             <textarea name="description" onChange={handleInput} placeholder="description" className="form-control" id="exampleInputPassword1" cols="30" rows="5"></textarea>
           </div>
           <div className="d-flex justify-content-end">

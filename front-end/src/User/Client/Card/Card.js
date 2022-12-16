@@ -1,6 +1,27 @@
-import React from 'react'
+import React, {useState } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../../config';
+
+
 
 const Card = () => {
+    
+    const [commande, setCommande] = useState({
+        username:'',
+        adresse:'',
+        ville:'',
+        Code_postale:'' ,
+        telephone:'',
+        repas:'',
+        quantity:'',
+        total:'',
+    })
+
+    const handleChange = (e) => {
+        setCommande({...commande, [e.target.id]: [e.target.value]})
+    }
+
+
     return (
 
         <main className="container">
@@ -38,7 +59,7 @@ const Card = () => {
                                     </td>
                                     <td>
                                         <button type="button" className="btn btn-link btn-sm btn-rounded ps-4">
-                                            <i className="fa-solid text-secondary fa-trash-can" style="font-size: 1.4rem;"></i>
+                                            <i className="fa-solid text-secondary fa-trash-can" style={{FontSize: "1.4rem"}}></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -86,32 +107,32 @@ const Card = () => {
                             <div className="row mb-2">
                                 <div className="col">
                                     <div className="form-outline">
-                                        <label className="mb-2 fonts font-weight-bold" for="email"><b>Username</b></label>
+                                        <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Username</b></label>
                                         <input type="text" id="form7Example1" className="form-control rounded-0 border-dark" />
                                     </div>
                                 </div>
                             </div>
                             <div className="font-weight-bold mb-2">
-                                <label className="mb-2 fonts font-weight-bold" for="email"><b>Adresse</b></label>
+                                <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Adresse</b></label>
                                 <input id="email" type="email" className="form-control rounded-0 border-dark" name="email"
                                     value="" required autofocus />
                             </div>
                             <div className="row mb-2">
                                 <div className="col">
                                     <div className="form-outline">
-                                        <label className="mb-2 fonts font-weight-bold" for="email"><b>Ville</b></label>
+                                        <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Ville</b></label>
                                         <input type="text" id="form7Example1" className="form-control rounded-0 border-dark" />
                                     </div>
                                 </div>
                                 <div className="col">
                                     <div className="form-outline">
-                                        <label className="mb-2 fonts font-weight-bold" for="email"><b>Code postale</b></label>
+                                        <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Code postale</b></label>
                                         <input type="text" id="form7Example1" className="form-control rounded-0 border-dark" />
                                     </div>
                                 </div>
                             </div>
                             <div className="font-weight-bold mb-2">
-                                <label className="mb-2 fonts font-weight-bold" for="email"><b>Téléphone</b></label>
+                                <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Téléphone</b></label>
                                 <input id="email" type="email" className="form-control rounded-0 border-dark" name="email"
                                     value="" required autofocus />
                             </div>

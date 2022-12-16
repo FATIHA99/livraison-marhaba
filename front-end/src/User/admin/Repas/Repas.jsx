@@ -1,10 +1,9 @@
 import {useState,useEffect} from 'react'
 import axios from "axios";
-import NavAdmin from '../sideBar/navAdmin/navAdmin.jsx';
-import Sidebar from '../sideBar/Sidebar'
 import AddRepas from './AddRepas.jsx'
 import { API_URL } from "../../../config";
 import {ToastContainer,toast} from "react-toastify";
+import { Link } from 'react-router-dom';
 
 
 const Repas = () => {
@@ -20,10 +19,10 @@ const Repas = () => {
         fetchRepas()
       }, [])
 
-    function deleteRepas(id, event) {
-        event.preventDefault();
+    function deleteRepas(id, e) {
+        e.preventDefault();
     
-        axios.post(API_URL+`/repas/delete/`+id)
+        axios.get(API_URL+`/repas/delete/`+id)
           .then((data) => {
             toast.success('deleted success')
             window.location.reload()
@@ -32,65 +31,56 @@ const Repas = () => {
           })
     
       }
+    
   return (
-    <main className="container-fluid bg-white">
-        <div className="row d-flex flex-nowrap">
-            <Sidebar/>
-            <div className="col">
-                <div className="row">
-                   <NavAdmin/>
-                </div>
-                <div className="container-fluid">
-                    <div className="row mt-4">
-                        <div className="col-md d-flex justify-content-between">
-                            <div className="">
-                                <h3>Repas List</h3>
-                            </div>
-                            <div className="">
-                                <i class="bi bi-eject text-info me-2 fs-5"></i>
-                                <button type="button" className="btn btn-info text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD NEW REPAS</button>
-                                <AddRepas/>
-                            </div>
-                        </div>
+        <div className="container-fluid">
+            <div className="row mt-4">
+                <div className="col-md d-flex justify-content-between">
+                    <div className="">
+                        <h3>Repas List</h3>
                     </div>
-                    <hr/>
-                    <div style={{width: "99%", margin: "auto"}} className="row overflow-auto">
-                        <table className="table table-bordered" id="myTable">
-                            <thead>
-                                <tr style={{color: "#acacac"}}>
-                                    <th scope='col'>image</th>
-                                    <th scope="col">name</th>
-                                    <th scope="col">description</th>
-                                    <th scope='col'>price</th>
-                                    <th scope='col'>categorie</th>
-                                    <th className="text-center">operation</th>
-                                </tr>
-                            </thead>
-                            <tbody className="bg-white">
-                                {data.map((repas)=>(
-                                <tr className="align-middle">
-                                    <td>{repas._id}</td>
-                                    <td>{repas.image}</td>
-                                    <td>{repas.name}</td>
-                                    <td >{repas.description}</td>
-                                    <td>{repas.price}</td>
-                                    <td>{repas.categorie}</td>
-                                    <td className="d-flex flex-row justify-content-end">
-                                        <div>
-                                            <button className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></button>
-                                            <button className="btn btn-outline-danger" onClick={(e)=>deleteRepas(repas._id,e)}><i className="bi bi-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                ))}                            
-                            </tbody>
-                        </table>
+                    <div className="">
+                        <i className="bi bi-eject text-info me-2 fs-5"></i>
+                        <label htmlFor="adds" className='btn btn-info text-white'>ADD NEW REPAS</label>
                     </div>
                 </div>
             </div>
+            <hr/>
+            <input type="checkbox" className="d-none" id="adds"/>
+            <AddRepas/>
+            <div style={{width: "99%", margin: "auto"}} className="row overflow-auto">
+                <table className="table table-bordered" id="myTable">
+                    <thead>
+                        <tr style={{color: "#acacac"}}>
+                            <th scope='col'>image</th>
+                            <th scope="col">name</th>
+                            <th scope="col">description</th>
+                            <th scope='col'>price</th>
+                            <th scope='col'>categorie</th>
+                            <th className="text-center">operation</th>
+                        </tr>
+                    </thead>
+                    <tbody className="bg-white">
+                        {data.map((repas)=>(
+                        <tr key={repas._id} className="align-middle">
+                            <td>{repas.image}</td>
+                            <td>{repas.name}</td>
+                            <td >{repas.description}</td>
+                            <td>{repas.price}</td>
+                            <td>{repas.categorie}</td>
+                            <td className="d-flex flex-row justify-content-end">
+                                <div className='text-nowrap'>
+                                    <Link to={`/EditRepas/${repas._id}`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
+                                    <button className="btn btn-outline-danger" onClick={(e)=>deleteRepas(repas._id,e)}><i className="bi bi-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        ))}                            
+                    </tbody>
+                </table>
+            </div>
+            <ToastContainer/>
         </div>
-        <ToastContainer/>
-    </main>
   )
 }
 
