@@ -50,7 +50,7 @@ const ForgetPass = (props) => {
                         <div className="card-body px-5 ">
                             <form onSubmit={onSubmit} className="needs-validation">
                                 <div className="mb-3 font-weight-bold ">
-                                    <label className="mb-2 fonts font-weight-bold" for="email"><b>Email</b></label>
+                                    <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Email</b></label>
                                     <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
                                 </div>
 

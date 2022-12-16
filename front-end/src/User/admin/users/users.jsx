@@ -44,7 +44,7 @@ function User() {
                     </thead>
                     <tbody className="bg-white">
                         {delivery.map((delivery) => (
-                            <tr className="align-middle">
+                            <tr key={delivery._id} className="align-middle">
                                 <th scope="row">1</th>
                                 <th scope="row">{delivery.username}</th>
                                 <td>{delivery.email}</td>
