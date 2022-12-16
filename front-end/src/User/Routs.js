@@ -29,20 +29,19 @@ const Routs = () => {
       {/* <Navbar /> */}
 
       <Routes>
-         <Route element={<AdminDashboard/>}>
-          <Route path='/categories' element={<Categorie/>} />
-          <Route path='/users' element={<Users/>} />
-          <Route path='/AddLivreur' element={<AddLivreur/>} />
-         </Route>
+        <Route element={<AdminDashboard />}>
+          <Route path='/categories' element={<Categorie />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/AddLivreur' element={<AddLivreur />} />
+        </Route>
 
-         <Route element={<LivreurDashboard/>}>
-          <Route path='/commands' element={<Commands/>} />
-        
-         </Route>
+        <Route element={<LivreurDashboard />}>
+          <Route path='/commandes' element={<Commands />} />
+        </Route>
 
 
-        <Route path={'/dash'} element={<DashboardAdmin/>}/>
-        <Route path={'/repas'} element={<Repas/>}/>
+        <Route path={'/dash'} element={<DashboardAdmin />} />
+        <Route path={'/repas'} element={<Repas />} />
 
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Home />} />

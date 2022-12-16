@@ -34,7 +34,7 @@ const { user } = isAunthenticated()
         <hr />
         <nav className="text-start p-2">
          
-            <NavLink className="nav-link p-2" to={"/commands"}>
+            <NavLink className="nav-link p-2" to={"/commandes"}>
                 <i className="bi bi-cart2 fs-5 me-2"></i>&nbsp;commandes
             </NavLink>
             
