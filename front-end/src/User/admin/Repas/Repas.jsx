@@ -19,8 +19,8 @@ const Repas = () => {
         fetchRepas()
       }, [])
 
-    function deleteRepas(id, event) {
-        event.preventDefault();
+    function deleteRepas(id, e) {
+        e.preventDefault();
     
         axios.get(API_URL+`/repas/delete/`+id)
           .then((data) => {
@@ -31,6 +31,7 @@ const Repas = () => {
           })
     
       }
+    
   return (
         <div className="container-fluid">
             <div className="row mt-4">
@@ -39,13 +40,13 @@ const Repas = () => {
                         <h3>Repas List</h3>
                     </div>
                     <div className="">
-                        <i class="bi bi-eject text-info me-2 fs-5"></i>
+                        <i className="bi bi-eject text-info me-2 fs-5"></i>
                         <label htmlFor="adds" className='btn btn-info text-white'>ADD NEW REPAS</label>
                     </div>
                 </div>
             </div>
             <hr/>
-            <input type="checkbox" class="d-none" id="adds"/>
+            <input type="checkbox" className="d-none" id="adds"/>
             <AddRepas/>
             <div style={{width: "99%", margin: "auto"}} className="row overflow-auto">
                 <table className="table table-bordered" id="myTable">
@@ -62,15 +63,14 @@ const Repas = () => {
                     <tbody className="bg-white">
                         {data.map((repas)=>(
                         <tr key={repas._id} className="align-middle">
-                            <td>{repas._id}</td>
-                            {/* <td>{repas.image}</td> */}
+                            <td>{repas.image}</td>
                             <td>{repas.name}</td>
                             <td >{repas.description}</td>
                             <td>{repas.price}</td>
                             <td>{repas.categorie}</td>
                             <td className="d-flex flex-row justify-content-end">
                                 <div className='text-nowrap'>
-                                    <Link to='/EditRepas' className='btn btn-outline-info me-1'><i class="bi bi-pencil-square"></i></Link>
+                                    <Link to={`/EditRepas/${repas._id}`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
                                     <button className="btn btn-outline-danger" onClick={(e)=>deleteRepas(repas._id,e)}><i className="bi bi-trash"></i></button>
                                 </div>
                             </td>

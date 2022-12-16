@@ -66,9 +66,9 @@ const updateRepas = (req,res)=>{
     const {body} = req
     const id = req.params.id
     repas.updateOne({_id : id},{...body}).then((data)=>{
-        res.send('updated success')
+        res.status(200).send('updated success')
     }).catch((error)=>{
-        res.send(error)
+        res.status(401).send(error)
     })
 }
 

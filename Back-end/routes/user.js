@@ -30,7 +30,7 @@ route.delete('/DeleteDelivery/:id',livreur.DeleteDelivery)
 route.post('/repas/add',repas.addRepas)
 route.get('/repas',repas.getAllrepas)
 route.get('/repas/getone/:id',repas.getOnerepas)
-route.post('/repas/update/:id',repas.updateRepas)
+route.patch('/repas/update/:id',repas.updateRepas)
 route.get('/repas/delete/:id',repas.deletRepas)
 
 
