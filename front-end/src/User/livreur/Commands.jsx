@@ -12,9 +12,12 @@ function Commands() {
 
   const fetchCommandes = async () => {
     // event.preventDefault();
-    const commandes = await axios.get(`${API_URL}/commandes`)
-    setCommandes(commandes.data);
-    console.log(commandes.data)
+    try {
+      const commandes = await axios.get(`${API_URL}/commandes`)
+      setCommandes(commandes.data);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => { fetchCommandes() }, [commands])
@@ -23,9 +26,9 @@ function Commands() {
     e.preventDefault();
     await axios.put(`${API_URL}/commandes/updateStatus/${id}`)
       .then((e) => {
-        window.location.reload(false);
-        toastr.success('status modifié');
-      })
+        // window.location.reload(false);
+        toastr.success(e.data);
+      }).catch((error)=>console.log(error))
   }
 
   return (
@@ -57,7 +60,7 @@ function Commands() {
             <td className="">{c.date}</td>
             <td className="">{c.total} </td>
             <td className="">{c.delivered ? <label className="text-success"> <i class="bi bi-cart-check-fill"></i> delivrer</label> : <label className="text-danger"> <i class="bi bi-cart-x-fill"></i> non delivrer</label>  } </td>
-            <td className=""><input  type="radio" className="btn btn-info"  name={c._id} onClick={(e) => update(e, c._id)}  value='change value' /></td>
+            <td className=""><input  type="checkbox" className="btn btn-info" checked={c.delivered ? true : false} name={c._id} onClick={(e) => update(e, c._id)}  value='change value' /></td>
 
           </tr>
         ))}

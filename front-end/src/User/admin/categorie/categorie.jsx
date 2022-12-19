@@ -17,7 +17,7 @@ function Tail() {
 
   // dispaly all  
   const fetchCategorie = async () => {
-    const all = await axios.get(`${API_URL}/categories`);
+    const all = await axios.get(`${API_URL}/api/categories`);
     setCategorie(all.data)
   }
 
