@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 function display(req, res) {
     Categorie.find()
         .then((categories) => {
-         
+
             res.send(categories)
 
         })
@@ -38,12 +38,12 @@ function deleteCategorie(req, res) {
 
 
 
-const getOne = async(req,res)=>{
-    const {id} = req.params
+const getOne = async (req, res) => {
+    const { id } = req.params
     try {
-    const findOne = await Categorie.findById({_id : id})
-    if(findOne) res.json(findOne)
-    else res.send("not found")
+        const findOne = await Categorie.findById({ _id: id })
+        if (findOne) res.json(findOne)
+        else res.send("not found")
     } catch (error) {
         res.send(error)
     }
@@ -51,16 +51,27 @@ const getOne = async(req,res)=>{
 
 function update(req, res) {
     const { body } = req
-    const _id = req.params
+    const { id } = req.params
     let newLabel = body.label;
-    let newDescription= body.description;
-    Categorie.findOneAndUpdate(_id, { label: newLabel ,description:newDescription})
+    let newDescription = body.description;
+    Categorie.findById(id)
         .then((e) => {
-            res.send('updated')
+          Categorie.updateOne({_id:id},{$set:{label:newLabel,description:newDescription}})
+          .then((e)=>{
+            res.send("updated succeess")
+          })
+
         })
         .catch((err) => {
-            res.send(err)
+            console.log(err)
         })
+    // Categorie.findOneAndUpdate(_id, { label: newLabel ,description:newDescription})
+    //     .then((e) => {
+    //         res.send('updated')
+    //     })
+    //     .catch((err) => {
+    //         res.send(err)
+    //     })
 }
 
-module.exports = { display, addCategorie, deleteCategorie, update,getOne }
+module.exports = { display, addCategorie, deleteCategorie, update, getOne }
