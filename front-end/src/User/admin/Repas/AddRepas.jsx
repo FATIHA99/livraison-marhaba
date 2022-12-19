@@ -3,10 +3,9 @@ import React,{useState} from 'react'
 import { API_URL } from '../../../config'
 import { ToastContainer, toast } from "react-toastify";
 import './repas.css'
-// import { useNavigate } from "react-router-dom";
 
 const AddRepas = () => {
-    // const navigate = useNavigate()
+
     const [data, setData] = useState({
         name : '',
         description : '',
@@ -18,11 +17,22 @@ const AddRepas = () => {
     const handlechange = (e)=>{
         setData({...data , [e.target.name] : e.target.value})
     }
+    const handlePhoto = (e)=>{
+        setData({...data,image:e.target.files[0]})
+        console.log(data.image)
+    }
 
     const onSub = (e)=>{
         e.preventDefault()
-        axios.post(API_URL+'/repas/add',data).then((e)=>{
-            // console.log(e.data)
+        const formData = new FormData();
+        formData.append('name',data.name)
+        formData.append('description',data.description)
+        formData.append('price',data.price)
+        formData.append('categorie',data.categorie)
+        formData.append('photo',data.image)
+        console.log(data.image)
+
+        axios.post(API_URL+'/repas/add',formData).then((e)=>{
             toast.success('created repas avec success')
 
         }).catch((error)=>{
@@ -50,7 +60,7 @@ const AddRepas = () => {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">image</label>
-                    <input type="file" onChange={handlechange} className="form-control" name="image" multiple required/>
+                    <input type="file" onChange={handlePhoto} className="form-control" name="image" multiple required/>
                 </div>
                 <div className='mt-2'>
                     <button type="button" onClick={onSub} className="btn btn-info text-white mt-4">AJOUTER</button>
