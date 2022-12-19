@@ -34,4 +34,7 @@
     #label {
         display: block;
     }
+    #sid{
+        position: fixed !important;
+    }
 }
