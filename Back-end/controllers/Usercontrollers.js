@@ -117,6 +117,27 @@ const resetpassword = async (req, res) => {
         .catch(() => { res.send('not update') })
 }
 
+const getUsers = (req,res)=>{
+    User.find({role:'client'}).then((e)=>{
+        res.send(e)
+    })
+}
+
+const banieCompte = (req,res)=>{
+    const id = req.params.id
+    User.findById({_id:id}).then((e)=>{
+        if (e.active) {
+            User.updateOne({_id : id},{active : false}).then((da)=>{
+                res.send('compte is bannie')
+            }).catch((err)=>{console.log(err)})
+        }else {
+            User.updateOne({_id : id},{active : true}).then((da)=>{
+                res.send('compte is active')
+            }).catch((err)=>{console.log(err)})
+        }
+    })
+}
+
 const signout = (req, res) => {
 
     res.clearCookie('token');
@@ -126,4 +147,4 @@ const signout = (req, res) => {
 }
 
 
-module.exports = { createUser, login, signout, forgetpassword, resetpassword, verify }
+module.exports = { createUser, login, signout, forgetpassword, resetpassword, verify,banieCompte,getUsers }
