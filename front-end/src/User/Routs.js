@@ -19,6 +19,8 @@ import Categorie from '../User/admin/categorie/categorie';
 import Users from '../User/admin/users/users'
 import AddLivreur from './admin/users/AddLivreur';
 import Commands from './livreur/Commands';
+import EditRepas from './admin/Repas/EditRepas';
+
 
 
 
@@ -29,11 +31,13 @@ const Routs = () => {
       {/* <Navbar /> */}
 
       <Routes>
-        <Route element={<AdminDashboard />}>
-          <Route path='/categories' element={<Categorie />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/AddLivreur' element={<AddLivreur />} />
-        </Route>
+         <Route element={<AdminDashboard/>}>
+          <Route path='/categories' element={<Categorie/>} />
+          <Route path='/users' element={<Users/>} />
+          <Route path='/AddLivreur' element={<AddLivreur/>} />
+          <Route path='/repas' element={<Repas/>}/>
+          <Route path='/EditRepas/:id' element={<EditRepas/>}/>
+         </Route>
 
         <Route element={<LivreurDashboard />}>
           <Route path='/commandes' element={<Commands />} />

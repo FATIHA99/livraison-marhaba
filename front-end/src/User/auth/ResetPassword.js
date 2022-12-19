@@ -69,11 +69,11 @@ const ResetPassword = () => {
                         <div className="card-body px-5 ">
                             <form onSubmit={onSubmit} className="needs-validation">
                                 <div className="mb-3 font-weight-bold ">
-                                    <label className="mb-2 fonts font-weight-bold" for="email"><b>Password</b></label>
+                                    <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Password</b></label>
                                     <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="email" />
                                 </div>
                                 <div className="mb-3 font-weight-bold ">
-                                    <label className="mb-2 fonts font-weight-bold" for="email"><b>ConfirmPassword</b></label>
+                                    <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>ConfirmPassword</b></label>
                                     <input id="confirmpassword" type="password" className="form-control rounded-0 border-dark" name="email" />
                                 </div>
 

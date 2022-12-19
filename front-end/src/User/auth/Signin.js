@@ -69,7 +69,7 @@ const Signin = () => {
                         <div className="card-body px-5 py-3">
                             <form onSubmit={submiSignin} className="needs-validation">
                                 <div className="mb-3 font-weight-bold pt-2">
-                                    <label className="mb-2 fonts font-weight-bold" for="email"><b>Email</b></label>
+                                    <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Email</b></label>
                                     <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
                                     <div className="invalid-feedback">
                                         Email is invalid
@@ -78,7 +78,7 @@ const Signin = () => {
 
                                 <div className="mb-3">
                                     <div className="mb-2 w-100 d-flex flex-row justify-content-between">
-                                        <label className="fonts" for="password"><b>Password</b></label>
+                                        <label className="fonts" htmlFor="password"><b>Password</b></label>
                                         <Link className="text-decoration-none text-secondary" to="/forgetpassword">Forget password</Link>
                                     </div>
                                     <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
