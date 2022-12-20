@@ -1,44 +1,38 @@
 const repas = require('../models/Repasmodels')
 const multer = require('multer')
+const path = require('path')
 
-// const storage = multer.diskStorage({
-//     destination : function (req,file,cb) {
-//         cb(null,'./images')
-//     },
-//     filename : function (req,file,cb) {
-//         cb(null,file.originalname)        
-//     }
-// })
+const storage = multer.diskStorage({
+    destination : function (req,file,cb) {
+        cb(null,'./images')
+    },
+    filename : function (req,file,cb) {
+        cb(null,file.originalname)        
+    }
+})
 
-// let upload = multer({storage : storage})
+const fileFilter = (req,file,cb)=>{
+    const allowedFileTypes = ['image/jpeg','image/jpg','image/png']
+    if (allowedFileTypes.includes(file.mimetype)) {
+        cb(null,true)
+    }else{
+        cb(null,false)
+    }
+}
+
+let upload = multer({storage : fileFilter}).single('image')
 
 
 
 const addRepas = (req,res)=>{
-    const {body} = req
-    // const form = new fdable.IncomingForm();
-    // form.parse(req,function(err,fields,files){
-    //     let oldPath = files.profilePic.path;
-    //     let newPath = path.join(__dirname, 'uploads')
-    //             + '/'+files.profilePic.name
-    //     let rawData = fs.readFileSync(oldPath)
-    // })
-    // http.createServer(function (req,res) {
-    //     if (req.url == '/fileupload') {
-    //         let form = new fdable.IncomingForm();
-    //         form.parse(req,function (err,field,files) {
-    //             res.send('file uploaded')
-    //         })
-            
-    //     }
-        
-    // })
+    const {body} = req;
 
+    // const f = file.filename
 
     repas.create({...body}).then(e=>{
-        res.send(e)
+        res.status(200).send(e)
     }).catch(error=>{
-        res.send(error+' '+'machakil')
+        res.status(401).send(error+' '+'machakil')
     })
 
 }

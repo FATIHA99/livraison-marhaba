@@ -34,7 +34,6 @@ function displayCommandes(req, res) {
 function  updateStatus (req, res) {
     const { id } = req.params
 
-
       Commande.findById(id)
         .then((e) => {
             if (e.delivered) {
@@ -44,7 +43,7 @@ function  updateStatus (req, res) {
             }
             else {
                 Commande.updateOne({_id: id }, {$set: { delivered: true }})
-                    .then((e)=>{ })
+                    .then((e)=>{ res.send('status modifié') })
                     .catch((error)=>{ console.log(error) })
             }
         })

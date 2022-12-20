@@ -25,7 +25,7 @@ const { user } = isAunthenticated()
   return (
     <>
         <input type="checkbox" id="menu" />
-        <div style={{ background: "#ededed", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-4 col-sm-5 col-8 text-center">
+        <div style={{ background: "#ededed",minHeight:"100vh"}} id="sid" className="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
             <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
             <h2 className="text-start">
                 <span className="text-info">| </span>Livraison
@@ -35,7 +35,7 @@ const { user } = isAunthenticated()
             <h4>{user.username}</h4>
             <p className="text-info">{user.role}</p>
             <hr />
-            <nav className="text-start p-2">
+            <nav className="text-start p-2 ">
                 <NavLink className="nav-link p-2" to={"/dash"}>
                     <i className="bi bi-speedometer2 fs-5 me-2"></i>&nbsp;Dashboard
                 </NavLink>
@@ -61,7 +61,7 @@ const { user } = isAunthenticated()
                 </NavLink>
                 <br />
             </nav>
-            <Link  onClick={signout} to={"#"} className="nav-link p-1">
+            <Link  onClick={signout} to={"#"} className="nav-link p-1 pt-0">
                 <i className="bi bi-box-arrow-right me-2 fs-5"></i> Logout
             </Link>
         </div>

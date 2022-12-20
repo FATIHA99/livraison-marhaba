@@ -19,16 +19,18 @@ const Repas = () => {
         fetchRepas()
       }, [])
 
-    function deleteRepas(id, e) {
-        e.preventDefault();
-    
-        axios.get(API_URL+`/repas/delete/`+id)
-          .then((data) => {
+    function deleteRepas(id,name) {
+        const result = window.confirm('vous pouvez suprimer '+name)
+        if (result) {
+            axios.get(API_URL+`/repas/delete/`+id)
+          .then(() => {
             toast.success('deleted success')
             window.location.reload()
           }).catch((error)=>{
               console.log(error)
           })
+        }
+        
     
       }
     
@@ -71,7 +73,7 @@ const Repas = () => {
                             <td className="d-flex flex-row justify-content-end">
                                 <div className='text-nowrap'>
                                     <Link to={`/EditRepas/${repas._id}`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
-                                    <button className="btn btn-outline-danger" onClick={(e)=>deleteRepas(repas._id,e)}><i className="bi bi-trash"></i></button>
+                                    <button className="btn btn-outline-danger" onClick={()=>deleteRepas(repas._id,repas.name)}><i className="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
