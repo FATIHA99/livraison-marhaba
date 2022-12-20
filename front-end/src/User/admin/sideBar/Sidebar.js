@@ -3,7 +3,7 @@ import { NavLink, useNavigate, Link } from "react-router-dom";
 import "./side.css";
 import axios from 'axios';
 import { API_URL } from '../../../config';
-import toastr from 'toastr';
+import {ToastContainer,toast} from "react-toastify";
 import { isAunthenticated } from '../../../helpers/Auth';
 import img from "../images/pic-1.png";
 
@@ -13,9 +13,7 @@ const Sidebar = () => {
     const signout = () => {
         axios.get(`${API_URL}/signout`)
             .then(() => {
-                toastr.success('Logout succefully !', {
-                    positionClass: "toastr-bottom"
-                })
+                toast.success('Logout succefully !')
 
                 localStorage.removeItem('jwt_info')
                 navigate('/signin')
@@ -64,6 +62,7 @@ const Sidebar = () => {
                 <Link onClick={signout} to={"#"} className="nav-link p-1 pt-0">
                     <i className="bi bi-box-arrow-right me-2 fs-5"></i> Logout
                 </Link>
+                <ToastContainer/>
             </div>
         </>
     )

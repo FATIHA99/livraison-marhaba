@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
-import toastr from 'toastr';
+import {ToastContainer,toast} from "react-toastify";
 
 
 const ForgetPass = (props) => {
@@ -22,18 +22,14 @@ const ForgetPass = (props) => {
         e.preventDefault();
         axios.post(`${API_URL}/forgetpassword`, user)
             .then((res) => {
-                toastr.success("We've sent you an email with a link to update your password.", {
-                    positionClass: "toastr-bottom-left",
-                })
+                toast.success("We've sent you an email with a link to update your password.")
                 localStorage.setItem('jwt_FORG', JSON.stringify(res))
                 navigate('/signin')
 
             })
             .catch((error) => {
                 if (error.response) {
-                    toastr.warning(error.response.data.error, 'Please chek Form !', {
-                        positionClass: "toastr-bottom-left",
-                    })
+                    toast.warning(error.response.data.error, 'Please chek Form !')
                 }
             })
     }
@@ -69,6 +65,7 @@ const ForgetPass = (props) => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

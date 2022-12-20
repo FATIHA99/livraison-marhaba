@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import axios from 'axios';
-import toastr from 'toastr';
+import {ToastContainer,toast} from "react-toastify";
 import "toastr/build/toastr.css";
 
 
@@ -31,10 +31,7 @@ const Signin = () => {
 
             .then((res) => {
 
-                toastr.success('Login succefully !', {
-                    positionClass: "toastr-bottom",
-                    
-                })
+                toast.success('Login succefully !')
        
                 localStorage.setItem('jwt_info', JSON.stringify(res.data))
                 if(res.data.user.role === "admin"){
@@ -50,9 +47,7 @@ const Signin = () => {
             })
             .catch(error => {
                 if (error.response) {
-                    toastr.warning(error.response.data.error, 'Please chek Form !', {
-                        positionClass: "toastr-bottom-left",
-                    })
+                    toast.warning(error.response.data.error, 'Please chek Form !')
                 }
             })
     }
@@ -98,6 +93,7 @@ const Signin = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

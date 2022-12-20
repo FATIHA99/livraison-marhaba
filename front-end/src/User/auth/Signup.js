@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { API_URL } from '../../config';
 import axios from 'axios';
-import toastr from 'toastr';
-import "toastr/build/toastr.css";
+import {ToastContainer,toast} from "react-toastify";
 
 
 const Signup = () => {
@@ -30,16 +29,12 @@ const Signup = () => {
         axios.post(`${API_URL}/signup`, user)
 
             .then(() => {
-                toastr.success('Creteded succefully chek your email to verfy your a compte!', {
-                    positionClass: "toastr-bottom-left",
-                })
+                toast.success('Creteded succefully chek your email to verfy your a compte!')
                 navigate('/signin')
             })
             .catch((error) => {
                 if (error.response) {
-                    toastr.warning(error.response.data.error, 'Please chek Form !', {
-
-                    })
+                    toast.warning(error.response.data.error, 'Please chek Form !')
                 }
 
             })
@@ -101,6 +96,7 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

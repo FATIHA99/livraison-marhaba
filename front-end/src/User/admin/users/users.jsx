@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import axios from 'axios'
 import { API_URL } from '../../../config'
-import toastr from "toastr";
+import {ToastContainer,toast} from "react-toastify";
 import "toastr/build/toastr.css";
 
 function User() {
@@ -21,9 +21,7 @@ function User() {
         axios.delete(`${API_URL}/DeleteDelivery/${id}`)
             .then((res) => {
                 window.location.reload(false);
-                toastr.success('livreur supprimé', {
-                    positionClass: "toastr-bottom-left",
-                })
+                toast.success('livreur supprimé')
             })
 
     }
@@ -58,6 +56,7 @@ function User() {
                     </tbody>
                 </table>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { API_URL } from '../../../config';
 import axios from 'axios';
-import toastr from 'toastr';
-import "toastr/build/toastr.css"
+import {ToastContainer,toast} from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -33,7 +32,7 @@ const AddLivreur = () => {
         })
 
             .then(() => {
-                toastr.success('Creteded succefully !', {
+                toast.success('Creteded succefully !', {
                     // positionClass: "toastr-top",
                     
                 })
@@ -42,9 +41,7 @@ const AddLivreur = () => {
             })
             .catch(error => {
                 if (error.response) {
-                    toastr.warning(error.response.data.error, 'Please chek Form !', {
-                        // positionClass: "toastr-top",
-                    })
+                    toast.warning(error.response.data.error, 'Please chek Form !')
                 }
 
             })
@@ -94,6 +91,7 @@ const AddLivreur = () => {
                 </div>
                 {/* {JSON.stringify(user)} */}
             </form>
+            <ToastContainer/>
         </div>
     )
 
