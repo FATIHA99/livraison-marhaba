@@ -33,6 +33,7 @@ const Routs = () => {
 
       <Routes>
          <Route element={<AdminDashboard/>}>
+          <Route path={'/dash'} element={<DashboardAdmin />} />
           <Route path='/categories' element={<Categorie/>} />
           <Route path='/users' element={<Users/>} />
           <Route path='/AddLivreur' element={<AddLivreur/>} />
@@ -46,8 +47,7 @@ const Routs = () => {
         </Route>
 
 
-        <Route path={'/dash'} element={<DashboardAdmin />} />
-        <Route path={'/repas'} element={<Repas />} />
+        
 
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Home />} />

@@ -57,7 +57,7 @@ const { user } = isAunthenticated()
                 </NavLink>
                 <br />
                 <NavLink className="nav-link p-2" to={"/client"}>
-                <i class="bi bi-person me-2 fs-5"></i> Client
+                <i className="bi bi-person me-2 fs-5"></i> Client
                 </NavLink>
                 <br />
             </nav>
