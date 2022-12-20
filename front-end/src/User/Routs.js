@@ -49,13 +49,10 @@ const Routs = () => {
           <Route path='/commandes' element={<Commands />} />
         </Route>
 
-
-
-
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Home />} />
           <Route path='/dashboard' element={<Dashboard />} />
-          
+
           <Route element={<PrivateLivreurRoute />}>
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
           </Route>
