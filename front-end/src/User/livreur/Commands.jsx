@@ -4,6 +4,7 @@ import { API_URL } from "../../config";
 import { useState } from "react";
 import toastr from "toastr";
 import "toastr/build/toastr.css";
+import { isAunthenticated } from './../../helpers/Auth'
 
 
 function Commands() {
@@ -22,14 +23,14 @@ function Commands() {
 
   useEffect(() => { fetchCommandes() }, [commands])
 
-    const update = async (e, id) => {
-      e.preventDefault();
-      await axios.put(`${API_URL}/commandes/updateStatus/${id}`)
-        .then((e) => {
-          // window.location.reload(false);
-          toastr.success(e.data);
-        }).catch((error)=>console.log(error))
-    }
+  const update = async (e, id) => {
+    e.preventDefault();
+    await axios.put(`${API_URL}/commandes/updateStatus/${id}`)
+      .then((e) => {
+        // window.location.reload(false);
+        toastr.success(e.data);
+      }).catch((error) => console.log(error))
+  }
 
   return (
 
@@ -51,6 +52,8 @@ function Commands() {
       <tbody className="bg-white">
         {commands.map((c) => (
           <tr className="align-middle">
+
+
             <td className="">{c.username}</td>
             <td className="">{c.adresse} </td>
             <td className="">{c.Code_postale} </td>
@@ -59,9 +62,14 @@ function Commands() {
             <td className="">{c.quantity} </td>
             <td className="">{c.date}</td>
             <td className="">{c.total} </td>
-            <td className="">{c.delivered ? <label className="text-success"> <i className="bi bi-cart-check-fill"></i> delivrer</label> : <label className="text-danger"> <i className="bi bi-cart-x-fill"></i> non delivrer</label>  } </td>
-            <td className=""><input  type="checkbox" className="btn btn-info" checked={c.delivered ? true : false} name={c._id} onClick={(e) => update(e, c._id)}  value='change value' /></td>
 
+
+            {isAunthenticated().user.role == "livreur" && (
+              <>
+                <td className="">{c.delivered ? <label className="text-success"> <i class="bi bi-cart-check-fill"></i> delivrer</label> : <label className="text-danger"> <i class="bi bi-cart-x-fill"></i> non delivrer</label>} </td>
+                <td className=""><input type="checkbox" className="btn btn-info" checked={c.delivered ? true : false} name={c._id} onClick={(e) => update(e, c._id)} value='change value' /></td>
+              </>
+            )}
           </tr>
         ))}
       </tbody>

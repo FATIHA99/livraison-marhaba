@@ -23,15 +23,13 @@ function Tail() {
 
   useEffect(() => {
     fetchCategorie()
-  
+
   }, [])
-
-
 
   // delete 
   function deleteId(id, event) {
     event.preventDefault();
- 
+
     axios.delete(`${API_URL}/api/categorie/delete/${id}`)
       .then((res) => {
         window.location.reload(false);
@@ -44,10 +42,9 @@ function Tail() {
   // update
   function updateId(id, event) {
     event.preventDefault();
- 
     axios.put(`${API_URL}/api/categories/update/${id}`, oneCat)
       .then((e) => {
-        // window.location.reload(false);
+        window.location.reload(false);
         toastr.success('categorie modifié');
 
       })
@@ -76,32 +73,26 @@ function Tail() {
   }
 
 
-
-
   return (
+
     <div>
-
       <h1 className="text-3xl font-bold font-mono "> Repas Categories </h1>
-
-      <form className= "shadow-sm p-3 mb-5 bg-body rounded " >
-        {oneCat ?
+      <form className="shadow-sm p-3 mb-5 bg-body rounded " >
+        
           <div>
-            <div key={oneCat._id} className="d-flex  container   ">
+            <div key={oneCat._id} className="d-flex  container justify-content-center   ">
               <div className="mb-3 me-5">
                 <input type="text" name="label" value={oneCat.label} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="label" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
               </div>
-              <div className="mb-3">
+              <div className="">
                 <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
               </div>
-              <button type="submit" className="btn btn-warning" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+              <button type="button" class="btn btn-warning  ms-2 mb-4" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
             </div>
           </div>
-          : <div> no result</div>
-        }
       </form>
 
       <div className="d-flex flex-row row container  gap-3  ">
-        {/* table */}
         <div className="row overflow-auto  col-8">
           <table className="table table-bordered shadow-lg p-3 mb-5 bg-body rounded" id="myTable">
             <thead>
@@ -114,17 +105,20 @@ function Tail() {
             </thead>
             <tbody className="bg-white">
               {categorie.map((cat) => (
+
+
                 <tr key={cat._id} className="align-middle">
-                  <td className="">{cat._id}</td>
+                  <td className="d-none">{cat._id}</td>
                   <td className="">{cat.label}</td>
                   <td className="">{cat.description}</td>
                   <td className="d-flex flex-row justify-content-end">
                     <div>
-                      <td> <button className="btn btn-outline-danger" onClick={(e) => deleteId(cat._id,e)} > <i className="bi bi-trash"></i></button> </td>
-                      <td> <button className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id,e)} ><i className="bi bi-pencil-square"></i> </button> </td>
+                      <td> <button className="btn btn-outline-danger" onClick={(e) => deleteId(cat._id, e)} > <i className="bi bi-trash"></i></button> </td>
+                      <td> <button className="btn  btn-outline-info" onClick={(e) => fetchOne(cat._id, e)} ><i className="bi bi-pencil-square"></i> </button> </td>
                     </div>
                   </td>
                 </tr>
+
 
               ))}
 
@@ -133,7 +127,7 @@ function Tail() {
         </div>
 
 
-        {/* form  add  */}
+      
         <form onSubmit={submitForm} className="col-4 shadow-lg p-3 mb-5 bg-body rounded ">
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">label</label>
@@ -147,6 +141,8 @@ function Tail() {
             <button type="submit" className="btn btn-warning">Ajouter</button>
           </div>
         </form>
+
+        
 
       </div>
     </div>
