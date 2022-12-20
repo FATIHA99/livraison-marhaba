@@ -37,6 +37,7 @@ const Routs = () => {
           <Route path='/AddLivreur' element={<AddLivreur/>} />
           <Route path='/repas' element={<Repas/>}/>
           <Route path='/EditRepas/:id' element={<EditRepas/>}/>
+          <Route path='/commands' element={<Commands/>}/>
          </Route>
 
         <Route element={<LivreurDashboard />}>
