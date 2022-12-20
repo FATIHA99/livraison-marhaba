@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import toastr from "toastr";
+import {ToastContainer,toast} from "react-toastify";
 import { API_URL } from '../../../config';
-import "toastr/build/toastr.css";
 function Tail() {
   const [categorie, setCategorie] = useState([]);
 
@@ -33,9 +32,7 @@ function Tail() {
     axios.delete(`${API_URL}/api/categorie/delete/${id}`)
       .then((res) => {
         window.location.reload(false);
-        toastr.success('categorie supprimé', {
-          positionClass: "toastr-bottom-left",
-        })
+        toast.success('categorie supprimé')
       })
 
   }
@@ -45,7 +42,7 @@ function Tail() {
     axios.put(`${API_URL}/api/categories/update/${id}`, oneCat)
       .then((e) => {
         window.location.reload(false);
-        toastr.success('categorie modifié');
+        toast.success('categorie modifié');
 
       })
   }
@@ -65,7 +62,7 @@ function Tail() {
       .then((res) => {
         let message = res.data.message;
         window.location.reload(false);
-        toastr.success(message, {
+        toast.success(message, {
           positionClass: "toastr-bottom-left",
         })
       })
@@ -87,7 +84,7 @@ function Tail() {
               <div className="">
                 <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
               </div>
-              <button type="button" class="btn btn-warning  ms-2 mb-4" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+              <button type="button" className="btn btn-warning  ms-2 mb-4" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
             </div>
           </div>
       </form>
@@ -143,7 +140,7 @@ function Tail() {
         </form>
 
         
-
+      <ToastContainer/>
       </div>
     </div>
   )

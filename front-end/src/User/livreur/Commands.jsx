@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../config";
 import { useState } from "react";
-import toastr from "toastr";
-import "toastr/build/toastr.css";
+import {ToastContainer,toast} from "react-toastify";
 import { isAunthenticated } from './../../helpers/Auth'
 
 
@@ -28,7 +27,7 @@ function Commands() {
     await axios.put(`${API_URL}/commandes/updateStatus/${id}`)
       .then((e) => {
         // window.location.reload(false);
-        toastr.success(e.data);
+        toast.success(e.data);
       }).catch((error) => console.log(error))
   }
 
@@ -51,7 +50,7 @@ function Commands() {
       </thead>
       <tbody className="bg-white">
         {commands.map((c) => (
-          <tr className="align-middle">
+          <tr key={c._id} className="align-middle">
 
 
             <td className="">{c.username}</td>
@@ -73,6 +72,7 @@ function Commands() {
           </tr>
         ))}
       </tbody>
+      <ToastContainer/>
     </table>
   )
 
