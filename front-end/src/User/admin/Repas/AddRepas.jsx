@@ -22,22 +22,21 @@ const AddRepas = () => {
         console.log(data.image)
     }
 
-    const onSub = (e)=>{
+    const onSub = async (e)=>{
         e.preventDefault()
         const formData = new FormData();
         formData.append('name',data.name)
         formData.append('description',data.description)
         formData.append('price',data.price)
         formData.append('categorie',data.categorie)
-        formData.append('photo',data.image)
-        console.log(data.image)
-
-        axios.post(API_URL+'/repas/add',formData).then((e)=>{
+        formData.append('image',data.image)
+        console.log(data)
+        const add = await axios.post(API_URL+'/repas/add',formData)
+        if(add){ 
             toast.success('created repas avec success')
-
-        }).catch((error)=>{
-            console.log(error)
-        })
+            window.location.reload()
+        }
+        else console.log('error')
     }
   return (
         <div className='form'>

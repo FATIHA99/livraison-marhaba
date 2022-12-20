@@ -20,6 +20,7 @@ import Users from '../User/admin/users/users'
 import AddLivreur from './admin/users/AddLivreur';
 import Commands from './livreur/Commands';
 import EditRepas from './admin/Repas/EditRepas';
+import Client from './admin/Client/Client.jsx';
 
 
 
@@ -37,6 +38,7 @@ const Routs = () => {
           <Route path='/AddLivreur' element={<AddLivreur/>} />
           <Route path='/repas' element={<Repas/>}/>
           <Route path='/EditRepas/:id' element={<EditRepas/>}/>
+          <Route path='/client' element={<Client/>}/>
          </Route>
 
         <Route element={<LivreurDashboard />}>
