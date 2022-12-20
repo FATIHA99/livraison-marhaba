@@ -11,7 +11,6 @@ const repas = require('../controllers/Repascontroller')
 const route = express.Router();
 
 
-
 route.post('/signup',userSignupValidator ,user.createUser);
 route.post('/signin',userSigninValidator ,user.login);
 route.get('/signout',user.signout);
@@ -19,6 +18,9 @@ route.get('/home',requireSignIn, chekrole);
 route.post('/forgetpassword',ForgetValidator,user.forgetpassword);
 route.post('/resetpassword/:token',user.resetpassword);
 route.get('/verify/:token',user.verify);
+// bannie compte
+route.get('/client',user.getUsers)
+route.put('/client/banie/:id',user.banieCompte)
 
 route.post('/addlivreur',userSignupValidator ,livreur.CreateLivreur)
 route.get('/DisplayDelivery',livreur.DisplayDelivery)
@@ -26,8 +28,9 @@ route.delete('/DeleteDelivery/:id',livreur.DeleteDelivery)
 
 
 // start routes des repas
+const upload = require('../middlewares/upload')
 
-route.post('/repas/add',repas.addRepas)
+route.post('/repas/add', upload.single('image'), repas.addRepas)
 route.get('/repas',repas.getAllrepas)
 route.get('/repas/getone/:id',repas.getOnerepas)
 route.patch('/repas/update/:id',repas.updateRepas)

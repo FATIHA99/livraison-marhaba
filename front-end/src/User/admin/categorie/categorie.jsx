@@ -74,7 +74,8 @@ function Tail() {
 
 
   return (
-    <div >
+  <div >
+    <div>
       <h1 className="text-3xl font-bold font-mono "> Repas Categories </h1>
       <form className="shadow-sm p-3 mb-5 bg-body rounded " >
         

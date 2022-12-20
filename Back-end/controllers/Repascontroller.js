@@ -1,40 +1,13 @@
 const repas = require('../models/Repasmodels')
-const multer = require('multer')
-const path = require('path')
-
-const storage = multer.diskStorage({
-    destination : function (req,file,cb) {
-        cb(null,'./images')
-    },
-    filename : function (req,file,cb) {
-        cb(null,file.originalname)        
-    }
-})
-
-const fileFilter = (req,file,cb)=>{
-    const allowedFileTypes = ['image/jpeg','image/jpg','image/png']
-    if (allowedFileTypes.includes(file.mimetype)) {
-        cb(null,true)
-    }else{
-        cb(null,false)
-    }
-}
-
-let upload = multer({storage : fileFilter}).single('image')
-
-
 
 const addRepas = (req,res)=>{
-    const {body} = req;
-
-    // const f = file.filename
-
-    repas.create({...body}).then(e=>{
+    const {body} = req
+    const image = req.file.originalname
+    repas.create({...body, image: image}).then(e=>{
         res.status(200).send(e)
     }).catch(error=>{
         res.status(401).send(error+' '+'machakil')
     })
-
 }
 
 const getAllrepas = (req,res)=>{
