@@ -2,8 +2,8 @@ const repas = require('../models/Repasmodels')
 
 const addRepas = (req,res)=>{
     const {body} = req
-    const image = req.file.originalname
-    repas.create({...body, image: image}).then(e=>{
+    const img = req.file.filename
+    repas.create({...body,image : img}).then(e=>{
         res.status(200).send(e)
     }).catch(error=>{
         res.status(401).send(error+' '+'machakil')
