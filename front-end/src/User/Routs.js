@@ -22,7 +22,7 @@ import Commands from './livreur/Commands';
 import EditRepas from './admin/Repas/EditRepas';
 import Client from './admin/Client/Client.jsx';
 
-
+import LandingPage from '../User/landingPage/landingPage';
 
 
 const Routs = () => {
@@ -52,7 +52,7 @@ const Routs = () => {
         
 
         <Route element={<PrivateRoute />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
 
 
