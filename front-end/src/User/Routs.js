@@ -41,11 +41,10 @@ const Routs = () => {
           <Route path='/EditRepas/:id' element={<EditRepas/>}/>
           <Route path='/commands' element={<Commands/>}/>
           <Route path='/client' element={<Client/>}/>
-
          </Route>
 
         <Route element={<LivreurDashboard />}>
-          <Route path='/commandes' element={<Commands />} />
+          <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
 
 
@@ -60,9 +59,9 @@ const Routs = () => {
             <Route path='/admin/dashboard' element={<AdminDashboard />} />
           </Route>
 
-          <Route element={<PrivateLivreurRoute />}>
+          {/* <Route element={<PrivateLivreurRoute />}>
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
-          </Route>
+          </Route> */}
         </Route>
 
         <Route path='/signup' element={<Signup />} />
