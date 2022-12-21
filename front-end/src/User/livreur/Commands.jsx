@@ -45,7 +45,9 @@ function Commands() {
           <th scope='col ' className="text-center">quantity</th>
           <th scope='col ' className="text-center">total</th>
           <th scope='col ' className="text-center">date</th>
+          {isAunthenticated().user.role == "livreur" && (
           <th scope='col ' className="text-center">delivered</th>
+          )}
         </tr>
       </thead>
       <tbody className="bg-white">
@@ -59,8 +61,8 @@ function Commands() {
             <td className="">{c.telephone} </td>
             <td className="">{c.repas} </td>
             <td className="">{c.quantity} </td>
-            <td className="">{c.date}</td>
             <td className="">{c.total} </td>
+            <td className="">{c.date}</td>
 
 
             {isAunthenticated().user.role == "livreur" && (

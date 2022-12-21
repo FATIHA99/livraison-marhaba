@@ -21,8 +21,9 @@ import AddLivreur from './admin/users/AddLivreur';
 import Commands from './livreur/Commands';
 import EditRepas from './admin/Repas/EditRepas';
 import Client from './admin/Client/Client.jsx';
+import Product from './Client/Product/Product';
 
-
+import LandingPage from '../User/landingPage/landingPage';
 
 
 const Routs = () => {
@@ -50,7 +51,7 @@ const Routs = () => {
         </Route>
 
         <Route element={<PrivateRoute />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
 
           <Route element={<PrivateLivreurRoute />}>
@@ -58,6 +59,7 @@ const Routs = () => {
           </Route>
         </Route>
 
+        <Route path='/product' element={<Product/>} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/forgetpassword' element={<ForgetPass />} />
