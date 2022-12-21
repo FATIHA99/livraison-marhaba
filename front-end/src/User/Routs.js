@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../core/Home';
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
 import ForgetPass from './auth/ForgetPass';
@@ -30,21 +29,8 @@ const Routs = () => {
   return (
     <Router>
 
-      {/* <Navbar /> */}
-
       <Routes>
-<<<<<<< HEAD
-         <Route element={<AdminDashboard/>}>
-          <Route path={'/dash'} element={<DashboardAdmin />} />
-          <Route path='/categories' element={<Categorie/>} />
-          <Route path='/users' element={<Users/>} />
-          <Route path='/AddLivreur' element={<AddLivreur/>} />
-          <Route path='/repas' element={<Repas/>}/>
-          <Route path='/EditRepas/:id' element={<EditRepas/>}/>
-          <Route path='/commands' element={<Commands/>}/>
-          <Route path='/client' element={<Client/>}/>
-         </Route>
-=======
+
         <Route element={<PrivateAdminRoute />}>
           <Route element={<AdminDashboard />}>
             <Route path={'/dash'} element={<DashboardAdmin />} />
@@ -57,8 +43,6 @@ const Routs = () => {
             <Route path='/client' element={<Client />} />
           </Route>
         </Route>
->>>>>>> 324d51ee554d467b09c1ce4dcbd96ae09584097f
-
         <Route element={<LivreurDashboard />}>
           <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
@@ -67,18 +51,9 @@ const Routs = () => {
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
 
-<<<<<<< HEAD
-
-          <Route element={<PrivateAdminRoute />}>
-            <Route path='/admin/dashboard' element={<AdminDashboard />} />
-          </Route>
-
-          {/* <Route element={<PrivateLivreurRoute />}>
-=======
           <Route element={<PrivateLivreurRoute />}>
->>>>>>> 324d51ee554d467b09c1ce4dcbd96ae09584097f
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
-          </Route> */}
+          </Route>
         </Route>
 
         <Route path='/product' element={<Product/>} />
