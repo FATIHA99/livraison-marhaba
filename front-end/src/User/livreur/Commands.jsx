@@ -45,7 +45,7 @@ function Commands() {
           <th scope='col ' className="text-center">quantity</th>
           <th scope='col ' className="text-center">total</th>
           <th scope='col ' className="text-center">date</th>
-          {isAunthenticated().user.role == "livreur" && (
+          {isAunthenticated().user.role === "livreur" && (
           <th scope='col ' className="text-center">delivered</th>
           )}
         </tr>
@@ -65,7 +65,7 @@ function Commands() {
             <td className="">{c.date}</td>
 
 
-            {isAunthenticated().user.role == "livreur" && (
+            {isAunthenticated().user.role === "livreur" && (
               <>
                 <td className="">{c.delivered ? <label className="text-success"> <i class="bi bi-cart-check-fill"></i> delivrer</label> : <label className="text-danger"> <i class="bi bi-cart-x-fill"></i> non delivrer</label>} </td>
                 <td className=""><input type="checkbox" className="btn btn-info" checked={c.delivered ? true : false} name={c._id} onClick={(e) => update(e, c._id)} value='change value' /></td>
