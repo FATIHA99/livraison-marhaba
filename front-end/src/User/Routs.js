@@ -21,6 +21,7 @@ import AddLivreur from './admin/users/AddLivreur';
 import Commands from './livreur/Commands';
 import EditRepas from './admin/Repas/EditRepas';
 import Client from './admin/Client/Client.jsx';
+import Product from './Client/Product/Product';
 
 import LandingPage from '../User/landingPage/landingPage';
 
@@ -32,6 +33,7 @@ const Routs = () => {
       {/* <Navbar /> */}
 
       <Routes>
+<<<<<<< HEAD
          <Route element={<AdminDashboard/>}>
           <Route path={'/dash'} element={<DashboardAdmin />} />
           <Route path='/categories' element={<Categorie/>} />
@@ -42,28 +44,44 @@ const Routs = () => {
           <Route path='/commands' element={<Commands/>}/>
           <Route path='/client' element={<Client/>}/>
          </Route>
+=======
+        <Route element={<PrivateAdminRoute />}>
+          <Route element={<AdminDashboard />}>
+            <Route path={'/dash'} element={<DashboardAdmin />} />
+            <Route path='/categories' element={<Categorie />} />
+            <Route path='/users' element={<Users />} />
+            <Route path='/AddLivreur' element={<AddLivreur />} />
+            <Route path='/repas' element={<Repas />} />
+            <Route path='/EditRepas/:id' element={<EditRepas />} />
+            <Route path='/commands' element={<Commands />} />
+            <Route path='/client' element={<Client />} />
+          </Route>
+        </Route>
+>>>>>>> 324d51ee554d467b09c1ce4dcbd96ae09584097f
 
         <Route element={<LivreurDashboard />}>
           <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
 
-
-        
-
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
 
+<<<<<<< HEAD
 
           <Route element={<PrivateAdminRoute />}>
             <Route path='/admin/dashboard' element={<AdminDashboard />} />
           </Route>
 
           {/* <Route element={<PrivateLivreurRoute />}>
+=======
+          <Route element={<PrivateLivreurRoute />}>
+>>>>>>> 324d51ee554d467b09c1ce4dcbd96ae09584097f
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
           </Route> */}
         </Route>
 
+        <Route path='/product' element={<Product/>} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/forgetpassword' element={<ForgetPass />} />

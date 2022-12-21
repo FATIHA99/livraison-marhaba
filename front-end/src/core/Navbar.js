@@ -36,7 +36,7 @@ const Navbar = (props) => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" to={`${isAunthenticated() && isAunthenticated().user.role === 'admin' ? '/admin' : isAunthenticated() && isAunthenticated().user.role === 'livreur' ? '/livreur' : ''}/dashboard`}>Dashboard</NavLink>
+                            <NavLink className="nav-link" to={`${isAunthenticated() && isAunthenticated().user.role === 'admin' ? '/dash' : isAunthenticated() && isAunthenticated().user.role === 'livreur' ? '/livreur/dashboard' : ''}`}>Dashboard</NavLink>
                         </li>
 
                         {!isAunthenticated() && (

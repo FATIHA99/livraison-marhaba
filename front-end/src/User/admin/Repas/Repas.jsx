@@ -14,7 +14,7 @@ const Repas = () => {
             setData(e.data)
         })
       }
-    
+      
       useEffect(() => {
         fetchRepas()
       }, [])
@@ -65,8 +65,8 @@ const Repas = () => {
                     <tbody className="bg-white">
                         {data.map((repas)=>(
                         <tr key={repas._id} className="align-middle">
-                            <td>{repas.image}</td>
-                            <td>{repas.name}</td>
+                            <td><img width={100} src={repas.image ? 'http://localhost:8080/images/'+repas.image:''}/></td>
+                            <td className='text-nowrap'>{repas.name}</td>
                             <td >{repas.description}</td>
                             <td>{repas.price}</td>
                             <td>{repas.categorie}</td>
