@@ -27,9 +27,12 @@ function User() {
     }
 
     return (
-        <div>
-            <h1> Users </h1>
-            <Link to='/AddLivreur' className="btn btn-warning m-3 " >Ajouter livreur</Link>
+        <div className="mt-2">
+            <div className="d-flex justify-content-between">
+                <h1> Users </h1>
+                <Link to='/AddLivreur' className="btn btn-info text-white m-3" >Ajouter livreur</Link>
+            </div>
+            <hr />  
             <div style={{ width: "99%", margin: "auto" }} className="row overflow-auto">
                 <table className="table table-bordered" id="myTable">
                     <thead>

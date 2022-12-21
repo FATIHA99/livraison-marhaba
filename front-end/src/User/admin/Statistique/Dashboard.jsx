@@ -1,6 +1,4 @@
 import React from 'react'
-import Sidebar from '../sideBar/Sidebar'
-import Nava from "../sideBar/navAdmin/navAdmin";
 
 const Dashboard = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import './landingPage.css'
-import { Link, Outlet } from 'react-router-dom'
-import repas from './repas.jpg'
+import { Link } from 'react-router-dom'
+
 
 import chef1 from './chef1.jpg'
 import chef2 from './chef3.jpg'
