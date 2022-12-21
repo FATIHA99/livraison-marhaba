@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from '../core/Home';
 import Signin from './auth/Signin';
 import Signup from './auth/Signup';
 import ForgetPass from './auth/ForgetPass';
@@ -30,9 +29,8 @@ const Routs = () => {
   return (
     <Router>
 
-      {/* <Navbar /> */}
-
       <Routes>
+
         <Route element={<PrivateAdminRoute />}>
           <Route element={<AdminDashboard />}>
             <Route path={'/dash'} element={<DashboardAdmin />} />
@@ -45,7 +43,6 @@ const Routs = () => {
             <Route path='/client' element={<Client />} />
           </Route>
         </Route>
-
         <Route element={<LivreurDashboard />}>
           <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
@@ -53,7 +50,6 @@ const Routs = () => {
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
-
 
           <Route element={<PrivateLivreurRoute />}>
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
