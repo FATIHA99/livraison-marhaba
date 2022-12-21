@@ -47,12 +47,13 @@ const Routs = () => {
         </Route>
 
         <Route element={<LivreurDashboard />}>
-          <Route path='/commandes' element={<Commands />} />
+          <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
+
 
           <Route element={<PrivateLivreurRoute />}>
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />

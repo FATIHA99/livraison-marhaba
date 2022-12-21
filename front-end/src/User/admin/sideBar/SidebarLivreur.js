@@ -22,7 +22,7 @@ const signout = () => {
   return (
     <>
         <input type="checkbox" id="menu" />
-        <div style={{ background: "#ededed", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-4 col-sm-5 col-8 text-center">
+        <div style={{ background: "#EDEDED", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-4 col-sm-5 col-8 text-center">
             <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
             <h2 className="text-start text-dark"><span className="text-warning">[</span>Livraison</h2>
             <br />
@@ -32,7 +32,7 @@ const signout = () => {
             <hr />
             <nav className="text-start p-2">
             
-                <NavLink className="nav-link p-2" to={"/commandes"}>
+                <NavLink className="nav-link p-2" to={"/livreur/dashboard/commandes"}>
                     <i className="bi bi-cart2 fs-5 me-2"></i>&nbsp;commandes
                 </NavLink>
                 

@@ -14,7 +14,7 @@ import hamburger from './hamburger.jpg'
 function LandingPage() {
     return (
         <div>
-            <nav className="navbar bg-dark">
+            <nav className="navbar bg-warning">
                 <div className="container-fluid">
                     <Link className="navbar-brand">Navbar</Link>
                     <form className="d-flex" role="search">
@@ -27,11 +27,11 @@ function LandingPage() {
             {/* section 1 */}
 
             <div className='container-fluid d-flex '>
-                <div className='col-6 bg-warning vh-100 ps-5 d-flex justify-content-center flex-column ' >
+                <div  style={{backgroundColor:'#FFC244' }} className='col-6  vh-100 ps-5 d-flex justify-content-center flex-column ' >
                     <h2 className='fs-1'> Welcome to Marhaba </h2>
                     <h3 className='text-dark'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est harum dignissimos amet veniam incidunt ratione asperiores,
                         nesciunt quasi rerum exercitationem similique labore eligendi culpa reprehenderit praesentium aut delectus architecto ducimus.</h3>
-                    <Link className='btn btn-danger m-5' to="">Login</Link>
+                    <Link  style={{backgroundColor:'#00A082'}}className='btn  m-5' to="">Login</Link>
                 </div>
                 <div className='col-6 bg-light d-flex justify-content-center align-items-center  img '>
                 </div>

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_URL } from '../../config';
 import axios from 'axios';
-import {ToastContainer,toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "toastr/build/toastr.css";
-
+import svg from '../../svg.gif'
 
 
 const Signin = () => {
@@ -32,18 +32,18 @@ const Signin = () => {
             .then((res) => {
 
                 toast.success('Login succefully !')
-       
+
                 localStorage.setItem('jwt_info', JSON.stringify(res.data))
-                if(res.data.user.role === "admin"){
+                if (res.data.user.role === "admin") {
                     navigate('/admin/dashboard')
                 }
-                if(res.data.user.role === "livreur"){
+                if (res.data.user.role === "livreur") {
                     navigate('/livreur/dashboard')
                 }
-                if(res.data.user.role === "client"){
+                if (res.data.user.role === "client") {
                     navigate('/')
                 }
-                
+
             })
             .catch(error => {
                 if (error.response) {
@@ -53,47 +53,43 @@ const Signin = () => {
     }
 
     return (
-        <div className="container h-100 mt-5">
-            <div className="row justify-content-sm-center h-100">
-                <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-
-                    <div className="card shadow-lg border-0">
-                        <div className="text-center my-2 mt-3  fonts">
-                            <h3>Login</h3>
-                        </div>
-                        <div className="card-body px-5 py-3">
-                            <form onSubmit={submiSignin} className="needs-validation">
-                                <div className="mb-3 font-weight-bold pt-2">
-                                    <label className="mb-2 fonts font-weight-bold" htmlFor="email"><b>Email</b></label>
-                                    <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
-                                    <div className="invalid-feedback">
-                                        Email is invalid
-                                    </div>
-                                </div>
-
-                                <div className="mb-3">
-                                    <div className="mb-2 w-100 d-flex flex-row justify-content-between">
-                                        <label className="fonts" htmlFor="password"><b>Password</b></label>
-                                        <Link className="text-decoration-none text-secondary" to="/forgetpassword">Forget password</Link>
-                                    </div>
-                                    <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
-                                </div>
-
-                                <div className="d-flex align-items-center fonts pb-3">
-                                    <button type="submit"
-                                        className=" w-100 bg-black text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 ">
-                                        <b>Login</b>
-                                    </button>
-                                </div>
-                                <div>
-                                    <Link className="text-decoration-none text-secondary" to="/signup">Create account</Link>
-                                </div>
-                            </form>
-                        </div>
+        <div className="container-lg mt-5">
+            <h1>| MARHABA</h1>
+            <div className="row d-flex justify-content-around bg-light shadow-lg border-0 ">
+                <div className="col-lg-6 col-md-8 col-sm-10 mt-5  border-end " style={{backgroundColor:''}}>
+                    <div className="text-center p-3">
+                        <h3>Login</h3>
                     </div>
+                    <form onSubmit={submiSignin} className="needs-validation mx-4">
+                        <div className="mb-3 font-weight-bold pt-2">
+                            <label className="mb-2 font-weight-bold" htmlFor="email"><b>Email</b></label>
+                            <input onChange={handleChange} id="email" type="email" className="form-control" name="email" />
+                            <div className="invalid-feedback">
+                                Email is invalid
+                            </div>
+                        </div>
+
+                        <div className="mb-3">
+                            <div className="mb-2 w-100 d-flex flex-row justify-content-between">
+                                <label className="" htmlFor="password"><b>Password</b></label>
+                                <Link className="nav-link text-secondary" to="/forgetpassword">Forget password</Link>
+                            </div>
+                            <input onChange={handleChange} id="password" type="password" className="form-control" name="password" />
+                        </div>
+
+                        <div className="d-flex align-items-center  justify-content-end fonts pb-3">
+                            <button  style={{backgroundColor:'#FFC727'}}type="submit" className="btn     w-25 text-dark">Login</button>
+                        </div>
+                        <div>
+                            <Link className="text-secondary" to="/signup">Create account</Link>
+                        </div>
+                    </form>
+                </div>
+                <div className='col-lg-6 col-md col-sm-10 text-center p-5'> 
+                    <img src={svg}></img>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }
