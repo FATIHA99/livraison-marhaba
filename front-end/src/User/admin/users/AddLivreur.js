@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { API_URL } from '../../../config';
 import axios from 'axios';
 import {ToastContainer,toast} from "react-toastify";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -50,47 +50,38 @@ const AddLivreur = () => {
 
 
     return (
-        <div className='d-flex justify-content-center flex-column  '>
-            <h1>Ajouter Livreur</h1>
-            <form onSubmit={addlivreur} className="needs-validation w-50" >
-                <div className=" mb-3 font-weight-bold">
-                    <label className="mb-2 fonts font-weight-bold" ><b>Username</b></label>
-                    <input onChange={handleChange} id="username" type="text" className="form-control rounded-0 border-dark" name="username" />
-
-                </div>
-
-                <div className="mb-3">
-                    <div className="mb-2 w-100">
-                        <label className="fonts"><b>Email</b></label>
+        <div className="container">
+            <div className="row my-4">
+                <div className="col-md-8 mx-auto">
+                    <div className="card">
+                        <div className="card-header">ADD NEW LIVREUR</div>
+                        <div className="card-body bg-light">
+                            <Link to={'/users'} className="btn btn-sm btn-info"><i class="bi bi-house-door text-white"></i></Link>
+                            <form method="POST">
+                                <div className="form-group mt-3">
+                                    <label>Username</label>
+                                    <input type="text" onChange={handleChange} id="username" placeholder="username" className="form-control mt-3"/>
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label>Email</label>
+                                    <input onChange={handleChange} id="email" type="email" placeholder='E-mail' className="form-control mt-3"/>
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label>password</label>
+                                    <input onChange={handleChange} placeholder='password' id="password" type="password" className="form-control mt-3"/>
+                                </div>
+                                <div className="form-group mt-3">
+                                    <label>confirm password</label>
+                                    <input onChange={handleChange} placeholder='confirm password' className='form-control mt-3' type="password" id="confirmpassword"/>
+                                </div>
+                                <div className="form-group mt-4">
+                                    <button type="submit" name="submit" onClick={addlivreur} className="btn btn-info text-white">Réservé</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
-
                 </div>
-
-                <div className="mb-3">
-                    <div className="mb-2 w-100">
-                        <label className="fonts"><b>Password</b></label>
-                    </div>
-                    <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
-
-                </div>
-
-                <div className="mb-3">
-                    <div className="mb-2 w-100">
-                        <label className="fonts"><b>CONFIRM Password</b></label>
-                    </div>
-                    <input onChange={handleChange} type="password" className="form-control rounded-0 border-dark" name="confirmpassword" id="confirmpassword" />
-
-                </div>
-
-                <div className="d-flex align-items-center fonts pb-3">
-
-                    <button type="submit" value="Submit" className=" w-100 bg-black text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 "  >
-                        <b>CREER UN COMPTE</b>
-                    </button>
-                </div>
-                {/* {JSON.stringify(user)} */}
-            </form>
+            </div>
             <ToastContainer/>
         </div>
     )

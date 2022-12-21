@@ -30,7 +30,7 @@ const AddRepas = () => {
         formData.append('price',data.price)
         formData.append('categorie',data.categorie)
         formData.append('image',data.image)
-        console.log(data)
+        console.log(formData)
         const add = await axios.post(API_URL+'/repas/add',formData)
         if(add){ 
             toast.success('created repas avec success')
