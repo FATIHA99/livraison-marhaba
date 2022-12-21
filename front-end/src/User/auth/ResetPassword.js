@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { API_URL } from '../../config';
-import toastr from 'toastr';
+import {ToastContainer,toast} from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 
 const ResetPassword = () => {
@@ -39,18 +39,14 @@ const ResetPassword = () => {
 
         axios.post(`${API_URL}/resetpassword/${token}`, user)
             .then((res) => {
-                toastr.success("We've sent you an email with a link to update your password.", {
-                    positionClass: "toastr-bottom-left",
-                })
+                toast.success("We've sent you an email with a link to update your password.")
                 navigate('/signin')
 
             })
             .catch((error) => {
                 console.log(error)
                 if (error.response) {
-                    toastr.warning(error.response.data.error, 'Please chek Form !', {
-                        positionClass: "toastr-bottom-left",
-                    })
+                    toast.warning(error.response.data.error, 'Please chek Form !')
                 }
             })
     }
@@ -88,6 +84,7 @@ const ResetPassword = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
         </div>
     )
 }

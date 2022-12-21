@@ -1,8 +1,7 @@
 import React from 'react'
 import {Link,NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import toastr from 'toastr';
-import "toastr/build/toastr.css"
+import {ToastContainer,toast} from "react-toastify";
 import { API_URL } from './../config'
 import { isAunthenticated } from './../helpers/Auth'
 import "./Nav.css";
@@ -17,9 +16,7 @@ const Navbar = (props) => {
 
         axios.get(`${API_URL}/signout`)
             .then(() => {
-                toastr.success('Logout succefully !', {
-                    positionClass: "toastr-bottom"
-                })
+                toast.success('Logout succefully !')
 
                 localStorage.removeItem('jwt_info')
                 navigate('/signin')
@@ -39,7 +36,7 @@ const Navbar = (props) => {
                     <ul className="navbar-nav ms-auto">
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" to={`${isAunthenticated() && isAunthenticated().user.role === 'admin' ? '/admin' : isAunthenticated() && isAunthenticated().user.role === 'livreur' ? '/livreur' : ''}/dashboard`}>Dashboard</NavLink>
+                            <NavLink className="nav-link" to={`${isAunthenticated() && isAunthenticated().user.role === 'admin' ? '/dash' : isAunthenticated() && isAunthenticated().user.role === 'livreur' ? '/livreur/dashboard' : ''}`}>Dashboard</NavLink>
                         </li>
 
                         {!isAunthenticated() && (
@@ -61,6 +58,7 @@ const Navbar = (props) => {
                     </ul>
                 </div>
             </div>
+            <ToastContainer/>
         </nav>
 
 
