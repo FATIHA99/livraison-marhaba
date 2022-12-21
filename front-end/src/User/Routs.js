@@ -32,33 +32,26 @@ const Routs = () => {
       {/* <Navbar /> */}
 
       <Routes>
-         <Route element={<AdminDashboard/>}>
-          <Route path={'/dash'} element={<DashboardAdmin />} />
-          <Route path='/categories' element={<Categorie/>} />
-          <Route path='/users' element={<Users/>} />
-          <Route path='/AddLivreur' element={<AddLivreur/>} />
-          <Route path='/repas' element={<Repas/>}/>
-          <Route path='/EditRepas/:id' element={<EditRepas/>}/>
-          <Route path='/commands' element={<Commands/>}/>
-          <Route path='/client' element={<Client/>}/>
-
-         </Route>
+        <Route element={<PrivateAdminRoute />}>
+          <Route element={<AdminDashboard />}>
+            <Route path={'/dash'} element={<DashboardAdmin />} />
+            <Route path='/categories' element={<Categorie />} />
+            <Route path='/users' element={<Users />} />
+            <Route path='/AddLivreur' element={<AddLivreur />} />
+            <Route path='/repas' element={<Repas />} />
+            <Route path='/EditRepas/:id' element={<EditRepas />} />
+            <Route path='/commands' element={<Commands />} />
+            <Route path='/client' element={<Client />} />
+          </Route>
+        </Route>
 
         <Route element={<LivreurDashboard />}>
           <Route path='/commandes' element={<Commands />} />
         </Route>
 
-
-        
-
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<Home />} />
           <Route path='/dashboard' element={<Dashboard />} />
-
-
-          <Route element={<PrivateAdminRoute />}>
-            <Route path='/admin/dashboard' element={<AdminDashboard />} />
-          </Route>
 
           <Route element={<PrivateLivreurRoute />}>
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
