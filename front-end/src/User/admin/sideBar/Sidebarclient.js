@@ -26,7 +26,7 @@ const { user } = isAunthenticated()
         <input type="checkbox" id="menu" />
         <div style={{ background: "#ededed", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-4 col-sm-5 col-8 text-center">
         <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
-        <h2 className="text-start text-dark"><span className="text-warning">[</span>Livraison</h2>
+        <h2 className="text-start text-dark"><span className="text-warning">|</span>Livraison</h2>
         <br />
         <img className="rounded rounded-circle w-50" src={require("../images/pic-1.png")} />
         <h4>{user.username}</h4>

@@ -32,14 +32,14 @@ function Commands() {
   }
 
   return (
-
-    <table className="table  mt-5 table-bordered shadow-lg p-3 mb-5 bg-body rounded" id="myTable">
+    <div className="overflow-auto">
+       <table className="table mt-5 table-bordered shadow-lg p-3 mb-5" id="myTable">
       <thead>
         <tr style={{ color: "#acacac" }}>
           <th scope='col' className=" d-none text-center">id</th>
           <th scope='col ' className="text-center">Client</th>
           <th scope='col ' className="text-center">adresse</th>
-          <th scope='col ' className="text-center">code postale</th>
+          <th scope='col ' className="text-center text-nowrap">code postale</th>
           <th scope='col ' className="text-center">telephone</th>
           <th scope='col ' className="text-center">repas</th>
           <th scope='col ' className="text-center">quantity</th>
@@ -54,7 +54,6 @@ function Commands() {
         {commands.map((c) => (
           <tr key={c._id} className="align-middle">
 
-
             <td className="">{c.username}</td>
             <td className="">{c.adresse} </td>
             <td className="">{c.Code_postale} </td>
@@ -62,7 +61,7 @@ function Commands() {
             <td className="">{c.repas} </td>
             <td className="">{c.quantity} </td>
             <td className="">{c.total} </td>
-            <td className="">{c.date}</td>
+            <td className="text-nowrap">{c.date}</td>
 
 
             {isAunthenticated().user.role === "livreur" && (
@@ -76,6 +75,8 @@ function Commands() {
       </tbody>
       <ToastContainer/>
     </table>
+    </div>
+   
   )
 
 }

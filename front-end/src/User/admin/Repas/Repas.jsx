@@ -5,7 +5,6 @@ import { API_URL } from "../../../config";
 import {ToastContainer,toast} from "react-toastify";
 import { Link } from 'react-router-dom';
 
-
 const Repas = () => {
     // fetch all
     const [data, setData] = useState([])
@@ -30,9 +29,8 @@ const Repas = () => {
               console.log(error)
           })
         }
-        
-    
-      }
+    }
+
     
   return (
         <div className="container-fluid">
@@ -69,7 +67,7 @@ const Repas = () => {
                             <td className='text-nowrap'>{repas.name}</td>
                             <td >{repas.description}</td>
                             <td>{repas.price}</td>
-                            <td>{repas.categorie}</td>
+                            <td>{repas.categorie.label}</td>
                             <td className="d-flex flex-row justify-content-end">
                                 <div className='text-nowrap'>
                                     <Link to={`/EditRepas/${repas._id}`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>
