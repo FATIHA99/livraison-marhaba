@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { API_URL } from '../../../config'
 import { ToastContainer, toast } from "react-toastify";
 import './repas.css'
@@ -22,6 +22,19 @@ const AddRepas = () => {
         console.log(data.image)
     }
 
+    // 
+    const [categorie, setCategorie] = useState([]);
+    const fetchCategorie = async () => {
+        const all = await axios.get(`${API_URL}/api/categories`);
+        setCategorie(all.data)
+      }
+    
+      useEffect(() => {
+        fetchCategorie()
+    
+      }, [])
+    
+// 
     const onSub = async (e)=>{
         e.preventDefault()
         const formData = new FormData();
@@ -43,23 +56,27 @@ const AddRepas = () => {
             <form method="POST" className='mt-2 d-flex justify-content-between' encType='multipart/form-data' id='form'>
                 <div className="mb-3">
                     <label className="form-label">Name</label>
-                    <input type="text" onChange={handlechange} className="form-control" placeholder='name' name="name" required/>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='name' name="name" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">description</label>
-                    <input type="text" onChange={handlechange} className="form-control" placeholder='description' name="description" required/>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='description' name="description" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">price</label>
-                    <input type="text" onChange={handlechange} className="form-control" placeholder='price' name="price" required/>
+                    <input type="text" onChange={handlechange} className="form-control" placeholder='price' name="price" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">categorie</label>
-                    <input type="text" onChange={handlechange} className="form-control" placeholder='categorie' name="categorie" required/>
+                    <select onChange={handlechange} className='form-select' name="categorie">
+                        {categorie.map((cat)=>(
+                            <option className='form-control' value={cat._id}>{cat.label}</option> 
+                        ))}
+                    </select>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">image</label>
-                    <input type="file" onChange={handlePhoto} className="form-control" name="image" multiple required/>
+                    <input type="file" onChange={handlePhoto} className="form-control" name="image" multiple />
                 </div>
                 <div className='mt-2'>
                     <button type="button" onClick={onSub} className="btn btn-info text-white mt-4">AJOUTER</button>

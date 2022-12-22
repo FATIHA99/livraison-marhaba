@@ -7,27 +7,27 @@ const EditRepas = () => {
     const navigate = useNavigate();
     const {id} = useParams();
     
-    const [one, setOne] = useState({
-        name : '',
-        price : '',
-        categorie : '',
-        description : '',
-        image : ''
-    })
+    const [one, setOne] = useState({});
     function getOne() {
         axios.get(`${API_URL}/repas/getone/${id}`).then((info)=>{
             setOne(info.data)
         })
     }
+
+
+    const [categorie, setCategorie] = useState([]);
+    const fetchCategorie = async () => {
+        const all = await axios.get(`${API_URL}/api/categories`);
+        setCategorie(all.data)
+    }
     useEffect(()=>{
+        fetchCategorie()
         getOne()
     },[])
-    
 
     const handleChange = (e) =>{
         setOne({...one,[e.target.name] : e.target.value})
     }
-
     const saveRepas = (e)=>{
         e.preventDefault();
         axios.patch(`${API_URL}/repas/update/${id}`,one).then((data)=>{
@@ -37,6 +37,7 @@ const EditRepas = () => {
         })
 
     }
+
   return (
     <div className="card mt-5 col-8 mx-auto">
         <div className="card-header">
@@ -56,7 +57,11 @@ const EditRepas = () => {
             </div>
             <div className="mb-3">
                 <label className="form-label">Categorie</label>
-                <input type="text" className="form-control" value={one.categorie} onChange={handleChange} placeholder='categorie' name="categorie" />
+                <select className='form-select' onChange={handleChange} name="categorie">
+                    {categorie.map((e)=>(
+                        <option>{e.label}</option>
+                    ))}
+                </select>
             </div>   
             <div className="mb-3">
                 <label className="form-label">Description</label>

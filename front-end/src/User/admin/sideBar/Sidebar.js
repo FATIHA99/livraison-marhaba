@@ -7,6 +7,7 @@ import {ToastContainer,toast} from "react-toastify";
 import { isAunthenticated } from '../../../helpers/Auth';
 import img from "../images/pic-1.png";
 
+
 const Sidebar = () => {
     const { user } = isAunthenticated()
     const navigate = useNavigate()
@@ -26,31 +27,31 @@ const Sidebar = () => {
             <div style={{ background: "#EDEDED", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
                 <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
                 <h2 className="text-start">
-                    <span className="text-success">| </span>MARHABA
+                    <span className="text-info">| </span>MARHABA
                 </h2>
                 <br />
                 <img className="rounded rounded-circle w-50" src={img} />
                 <h4>{user.username}</h4>
-                <p className="text-success">{user.role}</p>
+                <p className="text-info">{user.role}</p>
                 <hr />
                 <nav className="text-start p-2 ">
                     <NavLink className="nav-link p-2" to={"/dash"}>
-                    <i class="bi bi-bar-chart-line fs-5 me-2"></i>&nbsp;Dashboard
+                    <i className="bi bi-bar-chart-line fs-5 me-2"></i>&nbsp;Dashboard
                     </NavLink>
                     <br />
                     <NavLink className="nav-link p-2" to={"/users"}>
-                    <i class="bi bi-bicycle fs-5 me-2"></i>&nbsp;livreurs
+                    <i className="bi bi-bicycle fs-5 me-2"></i>&nbsp;livreurs
                     </NavLink>
                     <br />
                     <NavLink className="nav-link p-2" to={"/repas"}>
                     <i className="bi bi-cup-hot fs-5 me-2"></i>&nbsp;&nbsp;repas
                     </NavLink>
                     <br />
-                    <NavLink className="nav-link p-2" to={"/commands"}>
+                    <NavLink className="nav-link p-2 text-nowrap" to={"/commands"}>
                         <i className="bi bi-cart2 fs-5 me-2"></i>&nbsp;commandes
                     </NavLink>
                     <br />
-                    <NavLink className="nav-link p-2" to={"/categories"}>
+                    <NavLink className="nav-link p-2 text-nowrap" to={"/categories"}>
                     <i className="bi bi-menu-button-wide-fill fs-5 me-2"></i>&nbsp;&nbsp;Categories
                     </NavLink>
                     <br />
