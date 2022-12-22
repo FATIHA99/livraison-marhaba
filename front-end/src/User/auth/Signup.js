@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { API_URL } from '../../config';
 import axios from 'axios';
 import {ToastContainer,toast} from "react-toastify";
+import svg from '../../svg.gif'
 
 
 const Signup = () => {
@@ -43,18 +44,17 @@ const Signup = () => {
 
     return (
 
-        <div className="container h-100">
-            <div className="row justify-content-sm-center h-100">
-                <div className="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-                    <div className="text-center  my-2  fonts">
-                        <h3>Create Acount</h3>
+        <div className="container-lg mt-5">
+            <h1>| MARHABA</h1>
+            <div className="row d-flex justify-content-around bg-light shadow-lg border-0 ">
+                <div className="col-lg-6 col-md-8 col-sm-10 mt-5 px-5  border-end " style={{backgroundColor:''}}>
+                    <div className="text-center p-3">
+                        <h3> Inscription </h3>
                     </div>
-                    <div className="card shadow-lg border-0">
-                        <div className="card-body px-5 py-3">
-                            <form onSubmit={submiSignup} className="needs-validation">
+                    <form onSubmit={submiSignup} className="needs-validation">
                                 <div className="mb-3 font-weight-bold pt-2">
                                     <label className="mb-2 fonts font-weight-bold" ><b>Username</b></label>
-                                    <input onChange={handleChange} id="username" type="text" className="form-control rounded-0 border-dark" name="username" />
+                                    <input onChange={handleChange} id="username" type="text" className="form-control " name="username" />
                                     <div className="invalid-feedback">
                                         Username is invalid
                                     </div>
@@ -64,7 +64,7 @@ const Signup = () => {
                                     <div className="mb-2 w-100">
                                         <label className="fonts"><b>Email</b></label>
                                     </div>
-                                    <input onChange={handleChange} id="email" type="email" className="form-control rounded-0 border-dark" name="email" />
+                                    <input onChange={handleChange} id="email" type="email" className="form-control" name="email" />
                                     <div className="invalid-feedback">
                                         Email is Invalid
                                     </div>
@@ -74,29 +74,29 @@ const Signup = () => {
                                     <div className="mb-2 w-100">
                                         <label className="fonts"><b>Password</b></label>
                                     </div>
-                                    <input onChange={handleChange} id="password" type="password" className="form-control rounded-0 border-dark" name="password" />
+                                    <input onChange={handleChange} id="password" type="password" className="form-control " name="password" />
                                 </div>
 
                                 <div className="mb-3">
                                     <div className="mb-2 w-100">
                                         <label className="fonts"><b>CONFIRM Password</b></label>
                                     </div>
-                                    <input onChange={handleChange} id="confirmpassword" type="password" className="form-control rounded-0 border-dark" name="confirmpassword" />
+                                    <input onChange={handleChange} id="confirmpassword" type="password" className="form-control " name="confirmpassword" />
                                 </div>
 
                                 <div className="d-flex align-items-center fonts pb-3">
-                                    <button className=" w-100 bg-black text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 ">
+                                    <button  style={{ background: "#FFC244"}} className=" w-100  text-light b  py-2 px-4 rounded-0   ms-auto fonts  border-0 ">
                                         <b>CREER UN COMPTE</b>
                                     </button>
                                 </div>
-                                {JSON.stringify(user)}
+                                {/* {JSON.stringify(user)} */}
                             </form>
-
-                        </div>
-                    </div>
+                </div>
+                <div className='col-lg-6 col-md col-sm-10 text-center p-5'> 
+                    <img src={svg}></img>
                 </div>
             </div>
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     )
 }
