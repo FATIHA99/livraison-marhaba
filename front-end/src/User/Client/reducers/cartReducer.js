@@ -9,7 +9,11 @@ const cartReducer  = (state = myState, action) => {
     switch(action.type){
 
         case 'ADDITEM':{
-            return {...state, products:action.payload, count: action.payload.reduce((total, product) => total + product.count, 0)}
+            return {
+                ...state, 
+                products:action.payload, 
+                count: action.payload.reduce((total, product) => total + product.count, 0)
+            }
         }
 
         case 'INCPRODUCTCOUNT':{
