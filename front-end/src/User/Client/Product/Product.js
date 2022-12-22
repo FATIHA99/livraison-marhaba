@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import axios from "axios";
 import './Product.css';
 import { API_URL } from "../../../config";
-import { ToastContainer, toast } from "react-toastify";
-import { Link } from 'react-router-dom';
 import Navbar from '../../../core/Navbar';
 import { useDispatch } from 'react-redux';
 import { addTocart } from '../actions/cartActions';
