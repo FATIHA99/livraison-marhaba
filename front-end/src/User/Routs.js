@@ -22,6 +22,7 @@ import Commands from './livreur/Commands';
 import EditRepas from './admin/Repas/EditRepas';
 import Client from './admin/Client/Client.jsx';
 import Product from './Client/Product/Product';
+import Card from './Client/Card/Card'
 
 import LandingPage from '../User/landingPage/landingPage';
 
@@ -64,6 +65,7 @@ const Routs = () => {
         <Route path='/signin' element={<Signin />} />
         <Route path='/forgetpassword' element={<ForgetPass />} />
         <Route path='/resetpassword/:token' element={<ResetPassword />} />
+        <Route path='/client/cart' element={<Card/>} />
         <Route path='/notacces' element={< NotAcces />} />
         <Route path='*' element={<NotFound />} />
       </Routes>

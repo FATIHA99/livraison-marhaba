@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import{ createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducers from './reducers';
+import rootReducers from './User/Client/reducers';
 
 let store = createStore(rootReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

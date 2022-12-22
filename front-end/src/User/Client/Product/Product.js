@@ -5,9 +5,12 @@ import { API_URL } from "../../../config";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from 'react-router-dom';
 import Navbar from '../../../core/Navbar';
-
+import { useDispatch } from 'react-redux';
+import { addTocart } from '../actions/cartActions';
 
 const Product = () => {
+
+	const dispatch = useDispatch()
 
 	const [data, setData] = useState([])
 	const fetchRepas = () => {
@@ -41,7 +44,7 @@ const Product = () => {
 								<div id="product-1" class="single-product">
 									<div style={{ background: 'url("https://cdn.pixabay.com/photo/2017/11/13/05/43/food-2944709_1280.jpg") no-repeat center', backgroundSize: 'cover', transition: 'all 0.3s;' }} class="part-1">
 										<ul>
-											<li><i class="bi bi-cart-fill"></i></li>
+											<li onClick={()=>dispatch(addTocart(repas))}><i class="bi bi-cart-fill"></i></li>
 											<li><i class="bi bi-heart-fill"></i></li>
 											<li><i class="bi bi-plus-square-fill"></i></li>
 											<li><i class="bi bi-arrows-angle-expand"></i></li>
