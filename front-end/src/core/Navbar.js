@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import { API_URL } from './../config'
@@ -9,7 +9,7 @@ import "./Nav.css";
 
 
 
-const Navbar = (props) => {
+const Navbar = () => {
     let countItem = useSelector(state => state.cart.count)
 
     const navigate = useNavigate()

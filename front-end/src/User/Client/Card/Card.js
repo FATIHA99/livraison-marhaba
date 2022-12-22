@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../../config';
+import React from 'react';
 import { incProductCount, decProductCount, removeProduct } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Totalchekouat from './Totalchekouat';
