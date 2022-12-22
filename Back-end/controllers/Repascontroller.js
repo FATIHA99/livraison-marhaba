@@ -1,5 +1,5 @@
 const repas = require('../models/Repasmodels')
-
+const Categorie=require('../models/Categoriemodels')
 const addRepas = (req,res)=>{
     const {body} = req
     const img = req.file.filename
@@ -12,7 +12,12 @@ const addRepas = (req,res)=>{
 
 const getAllrepas = (req,res)=>{
 
-    repas.find().then(e=>{
+    repas.find()
+    .populate({
+        path : 'categorie',
+        model:Categorie
+    })
+    .then(e=>{
         res.send(e)
     }).catch((error)=>{
         res.send(error)
@@ -22,7 +27,11 @@ const getAllrepas = (req,res)=>{
 const getOnerepas = (req,res)=>{
 
     const id = req.params.id;
-    repas.findOne({_id : id}).then((data)=>{
+    repas.findOne({_id : id})
+    .populate({
+        path : 'categorie',
+        model:Categorie
+    }).then((data)=>{
         res.send(data)
     }).catch((error)=>{
         res.send(error)

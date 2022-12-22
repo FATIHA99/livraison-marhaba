@@ -10,9 +10,12 @@ const Repashema = new mongoose.Schema({
     price : {
         type : String
     },
+
     categorie : {
-        type : String
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Categorie'
     },
+
     image : {
         type : String
     }
