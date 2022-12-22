@@ -7,7 +7,7 @@
 .nav-link:hover {
     background-color: #00C1FE;
     border-radius: 8px;
-    color: white;
+    color: white !important;
 }
 
 #menu {
