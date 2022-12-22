@@ -1,25 +1,37 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../config';
+import { incProductCount, decProductCount, removeProduct } from '../actions/cartActions';
+import { useDispatch, useSelector } from 'react-redux';
+import Totalchekouat from './Totalchekouat';
+import './card.css'
 
 
 
 const Card = () => {
-    
-    const [commande, setCommande] = useState({
-        username:'',
-        adresse:'',
-        ville:'',
-        Code_postale:'' ,
-        telephone:'',
-        repas:'',
-        quantity:'',
-        total:'',
-    })
+    const productsInCart = useSelector(state => state.cart.products)
+    const dispatch = useDispatch()
 
-    const handleChange = (e) => {
-        setCommande({...commande, [e.target.id]: [e.target.value]})
-    }
+
+
+
+
+
+
+    // const [commande, setCommande] = useState({
+    //     username:'',
+    //     adresse:'',
+    //     ville:'',
+    //     Code_postale:'' ,
+    //     telephone:'',
+    //     repas:'',
+    //     quantity:'',
+    //     total:'',
+    // })
+
+    // const handleChange = (e) => {
+    //     setCommande({...commande, [e.target.id]: [e.target.value]})
+    // }
 
 
     return (
@@ -39,63 +51,38 @@ const Card = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div className="d-flex align-items-center">
-                                            <img src="image/femme1.png" alt="" style={{width: "45px", Height: "45px"}} className="rounded-circle" />
-                                            <div className="ms-3">
-                                                <p className="fw-bold mb-1">Repas</p>
-                                                <p className="text-muted mb-0">150 Dhs</p>
+                                {productsInCart.map((product, index) => (
+                                    <tr key={product.id}>
+                                        <td>
+                                            <div className="d-flex align-items-center">
+                                                <img src="image/femme1.png" alt="" style={{ width: "45px", Height: "45px" }} className="rounded-circle" />
+                                                <div className="ms-3">
+                                                    <p className="fw-bold mb-1">{product.name}</p>
+                                                    <p className="text-muted mb-0">{product.price} Dhs</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="quantity">
-                                            <input className="text-center py-1 rounded-0 ps-3 border-0" type="number" min="1" max="9" step="1" value="1" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p className="pt-3 ps-3">150</p>
-                                    </td>
-                                    <td>
-                                        <button type="button" className="btn btn-link btn-sm btn-rounded ps-4">
-                                            <i className="fa-solid text-secondary fa-trash-can" style={{FontSize: "1.4rem"}}></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <div className="quantity d-flex align-items-center justify-content-center">
+                                                <span onClick={()=>dispatch(decProductCount(product))} class="quantity__minus"><span>-</span></span>
+                                                <span className='px-4'>{product.count}</span>
+                                                <span onClick={()=>dispatch(incProductCount(product))}  className="quantity__plus"><span>+</span></span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p className="pt-3 ps-3">{product.count * product.price}</p>
+                                        </td>
+                                        <td>
+                                            <button  type="button" className="btn btn-link btn-sm btn-rounded ps-4">
+                                                <i onClick={()=>dispatch(removeProduct(product._id))} className="fa-solid text-secondary fs-5 bi bi-trash3-fill" style={{ FontSize: "1.4rem" }}></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
-                    <div className="shadow mt-4 pt-2 py-1 rounded px-3">
-                        <h3>TOTAL</h3>
-                        <hr />
-                        <div className="d-flex flex-row justify-content-between pt-3">
-                            <div>
-                                <p>Total des repas:</p>
-                            </div>
-                            <div>
-                                <p>250 dhs</p>
-                            </div>
-                        </div>
-                        <div className="d-flex flex-row justify-content-between">
-                            <div>
-                                <p>Frais de livraison:</p>
-                            </div>
-                            <div>
-                                <p>0 dhs</p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div className="d-flex flex-row justify-content-between">
-                            <div>
-                                <p><b>Total à payer:</b></p>
-                            </div>
-                            <div>
-                                <h5>0 dhs</h5>
-                            </div>
-                        </div>
-
-                    </div>
+                    <Totalchekouat products={productsInCart} />
                 </div>
 
                 <div className="col-4 px-4 pt-4 shadow py-2 rounded">
