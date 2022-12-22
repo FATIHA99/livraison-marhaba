@@ -35,10 +35,10 @@ const Signin = () => {
 
                 localStorage.setItem('jwt_info', JSON.stringify(res.data))
                 if (res.data.user.role === "admin") {
-                    navigate('/admin/dashboard')
+                    navigate('/dash')
                 }
                 if (res.data.user.role === "livreur") {
-                    navigate('/livreur/dashboard')
+                    navigate('/livreur/dashboard/commandes')
                 }
                 if (res.data.user.role === "client") {
                     navigate('/')

@@ -43,18 +43,21 @@ const Routs = () => {
             <Route path='/client' element={<Client />} />
           </Route>
         </Route>
+        <Route element={<PrivateLivreurRoute />}>
         <Route element={<LivreurDashboard />}>
           <Route path='/livreur/dashboard/commandes' element={<Commands />} />
         </Route>
+        </Route>
 
+        
         <Route element={<PrivateRoute />}>
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
 
-          <Route element={<PrivateLivreurRoute />}>
+         
             <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
           </Route>
-        </Route>
+      
 
         <Route path='/product' element={<Product/>} />
         <Route path='/signup' element={<Signup />} />
