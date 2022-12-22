@@ -9,13 +9,6 @@ import './card.css'
 const Card = () => {
     const productsInCart = useSelector(state => state.cart.products)
     const dispatch = useDispatch()
-
-
-
-
-
-
-
     // const [commande, setCommande] = useState({
     //     username:'',
     //     adresse:'',
@@ -68,7 +61,7 @@ const Card = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            <p className="pt-3 ps-3">{product.count * product.price}</p>
+                                            <p className="pt-3 ps-3">{product.count * product.price} Dhs</p>
                                         </td>
                                         <td>
                                             <button  type="button" className="btn btn-link btn-sm btn-rounded ps-4">

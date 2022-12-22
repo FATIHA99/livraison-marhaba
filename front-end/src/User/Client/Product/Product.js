@@ -40,7 +40,7 @@ const Product = () => {
 						{data.map((repas) => (
 							<div class="col-md-6 col-lg-4 col-xl-3">
 								<div id="product-1" class="single-product">
-									<div style={{ background: 'url("https://cdn.pixabay.com/photo/2017/11/13/05/43/food-2944709_1280.jpg") no-repeat center', backgroundSize: 'cover', transition: 'all 0.3s;' }} class="part-1">
+									<div style={{ background: `url("http://localhost:8080/images/${repas.image}") no-repeat center`, backgroundSize: 'cover', transition: 'all 0.3s;' }} class="part-1">
 										<ul>
 											<li onClick={()=>dispatch(addTocart(repas))}><i class="bi bi-cart-fill"></i></li>
 											<li><i class="bi bi-heart-fill"></i></li>
