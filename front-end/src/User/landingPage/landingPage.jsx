@@ -9,58 +9,62 @@ import chef3 from './chef2.jpg'
 import couscous from './couscous.jpg'
 import gateaux from './gateaux.jpg'
 import hamburger from './hamburger.jpg'
+import coca from './coca.jpg'
+import pepsi from './pepsi.jpg'
+import fanta from './fanta.jpg'
+
 
 
 function LandingPage() {
     return (
         <div>
-            <nav className="navbar bg-warning">
+            <nav className="navbar bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand">Navbar</Link>
+                    <Link className="navbar-brand text-warning">| MARHABA</Link>
                     <form className="d-flex" role="search">
-                        <Link className="btn btn-outline-light me-2" to='/signin' type="submit">Login</Link>
-                        <Link className="btn btn-outline-light me-2" to='/signup' type="submit">register</Link>
+                        <Link className="btn btn-warning me-2" to='/signin' type="submit">Login</Link>
+                        <Link className="btn btn-warning me-2" to='/signup' type="submit">register</Link>
                     </form>
                 </div>
             </nav>
 
             {/* section 1 */}
 
-            <div className='container-fluid d-flex '>
-                <div  style={{backgroundColor:'#FFC244' }} className='col-6  vh-100 ps-5 d-flex justify-content-center flex-column ' >
-                    <h2 className='fs-1'> Welcome to Marhaba </h2>
-                    <h3 className='text-dark'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est harum dignissimos amet veniam incidunt ratione asperiores,
+            <div className=' d-flex '>
+                <div  style={{backgroundColor:'black' }} className='col-6  vh-100 ps-5 d-flex justify-content-center flex-column ' >
+                    <h2 className='fs-1 text-warning'> | MARHABA </h2>
+                    <h3 className='text-light'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est harum dignissimos amet veniam incidunt ratione asperiores,
                         nesciunt quasi rerum exercitationem similique labore eligendi culpa reprehenderit praesentium aut delectus architecto ducimus.</h3>
-                    <Link  style={{backgroundColor:'#00A082'}}className='btn  m-5' to="">Login</Link>
+                    <Link  style={{backgroundColor:''}}className='btn  btn-light m-5' to="">Login</Link>
                 </div>
-                <div className='col-6 bg-light d-flex justify-content-center align-items-center  img '>
+                <div   style={{backgroundColor:'black' }} className='col-6  d-flex justify-content-center align-items-center  img '>
                 </div>
             </div>
             {/* section 2 */}
-            <div className="container-fluid  bg-dark py-5 mt-3">
-                <h1 className='text-center m-3 text-light '> notre proffessional chef </h1>
+            <div className="container-fluid  py-5 mt-3">
+                <h1 className='text-center m-3 text-dark '> notre proffessional chef </h1>
                 <div className='container-fluid d-flex justify-content-center  mt-5 gap-5 '>
-                    <div className="card col-3 card_chef" >
+                    <div className="card  border-0  bg-dark col-3 card_chef" >
                         <img src={chef1} class="card-img-top" alt="..."></img>
                         <div className="card-body">
-                            <h5 class="card-title">John doe</h5>
+                            <h5 class="card-title text-warning">John doe</h5>
 
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p className="card-text text-light">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div className="card col-3 card_chef" >
+                    <div className=" border-0  card col-3 bg-dark card_chef" >
                         <img src={chef2} class="card-img-top" alt="..."></img>
                         <div className="card-body">
-                            <h5 class="card-title">John doe</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h5 class="card-title text-warning">John doe</h5>
+                            <p className="card-text text-light ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
-                    <div className="card col-3 card_chef" >
+                    <div className="card  border-0 bg-dark col-3 card_chef" >
                         <img src={chef3} class="card-img-top" alt="..."></img>
                         <div className="card-body">
-                            <h5 class="card-title">John doe</h5>
+                            <h5 class="card-title text-warning">John doe</h5>
 
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p className="card-text text-light">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
                     </div>
 
@@ -99,10 +103,25 @@ function LandingPage() {
 
 
             </div>
+{/* section 4 */}
+ <h1 className='text-center mt-4'> BOISSONS</h1>
+<div className='container-fluid d-flex justify-content-center  mt-5 gap-5 '>
+   
+                <div className="card col-3" style={{'clip-path': 'circle(50% at 50% 50%)'}} >
+                <img src={coca} class="card-img-top" alt="..."></img>
+                </div>
+                <div className="card col-3" style={{'clip-path': 'circle(50% at 50% 50%)'}} >
+                <img src={fanta} class="card-img-top" alt="..."></img>
+                </div>
+                <div className="card col-3" style={{'clip-path': 'circle(50% at 50% 50%)'}}  >
+                <img src={pepsi} class="card-img-top" alt="..."></img>
+                </div>
 
-            {/* section 4  */}
 
-            <h1 className='text-center m-3'> nos Services   </h1>
+            </div>
+            {/* section 5  */}
+
+            {/* <h1 className='text-center m-3'> nos Services   </h1>
             <div className='container-fluid d-flex justify-content-center  m-5 gap-5 '>
                 <div className="col-8  livraison " >
       
@@ -112,7 +131,7 @@ function LandingPage() {
                     <h5> livraison a domicile </h5>
                     <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus odio omnis, eveniet tempora saepe animi deserunt! Accusamus quas inventore quos blanditiis mollitia natus distinctio unde ut deleniti, qui sed rem.</p>
                 </div>
-            </div>
+            </div> */}
 
 
             {/* FOOTER  */}
