@@ -59,7 +59,7 @@ const EditRepas = () => {
                 <label className="form-label">Categorie</label>
                 <select className='form-select' onChange={handleChange} name="categorie">
                     {categorie.map((e)=>(
-                        <option>{e.label}</option>
+                        <option value={e._id}>{e.label}</option>
                     ))}
                 </select>
             </div>   

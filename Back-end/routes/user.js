@@ -8,6 +8,7 @@ const {userSignupValidator } = require('../middlewares/userValidator');
 const {ForgetValidator} = require('../middlewares/userValidator')
 const {userSigninValidator } = require('../middlewares/userValidator');
 const repas = require('../controllers/Repascontroller')
+const stati = require('../controllers/statistique')
 const route = express.Router();
 const {Payment} = require('../controllers/Payment')
 
@@ -50,7 +51,9 @@ route.put('/commandes/updateStatus/:id',commande.updateStatus)
 
 route.post('/payments', Payment)
 
+// start statistic
 
+route.get('/stat',stati.statistiques)
 
 
 module.exports = route
