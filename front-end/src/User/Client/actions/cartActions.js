@@ -63,6 +63,4 @@ export const removeProduct = (_id) => {
         payload: items
     }
 
-
-
 }
