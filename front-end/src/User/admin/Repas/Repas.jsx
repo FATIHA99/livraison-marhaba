@@ -67,7 +67,7 @@ const Repas = () => {
                             <td className='text-nowrap'>{repas.name}</td>
                             <td >{repas.description}</td>
                             <td>{repas.price}</td>
-                            <td>{repas.categorie.label}</td>
+                            <td>{(!repas.categorie) ? '' : repas.categorie.label}</td>
                             <td className="d-flex flex-row justify-content-end">
                                 <div className='text-nowrap'>
                                     <Link to={`/EditRepas/${repas._id}`} className='btn btn-outline-info me-1'><i className="bi bi-pencil-square"></i></Link>

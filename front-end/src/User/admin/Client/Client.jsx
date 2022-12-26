@@ -49,10 +49,10 @@ const Client = () => {
                         <tr key={client._id} className="align-middle">
                             <td>{client.username}</td>
                             <td >{client.email}</td>
-                            <td >{client.active?<span className="badge text-bg-success">Active</span>:<span className="badge text-bg-danger">Désactive</span>}</td>
+                            <td >{client.active?<span className="badge text-bg-success">Activé</span>:<span className="badge text-bg-danger">Désactivé</span>}</td>
                             <td className="d-flex flex-row justify-content-end">
                                 <div>
-                                    <button type='button' onClick={(e)=>{update(e,client._id)}} className='btn btn-outline-warning'>{client.active ? 'désactiver' : 'activités'}</button>
+                                    <button type='button' onClick={(e)=>{update(e,client._id)}} className='btn btn-outline-warning'>{client.active ? 'désactiver' : 'activer'}</button>
                                 </div>
                             </td>
                         </tr>
