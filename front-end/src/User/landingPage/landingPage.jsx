@@ -144,19 +144,19 @@ function LandingPage() {
 
                     <section className="mb-4">
 
-                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="fab fa-facebook-f"></i></Link>
+                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="bi bi-facebook"></i></Link>
 
 
-                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="fab fa-twitter"></i></Link>
+                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="bi bi-twitter"></i></Link>
 
-                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="fab fa-google"></i></Link>
+                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="bi bi-google"></i></Link>
 
-                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="fab fa-instagram"></i></Link>
+                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="bi bi-instagram"></i></Link>
 
-                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="fab fa-linkedin-in"></i></Link>
+                        <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button"><i className="bi bi-linkedin"></i></Link>
 
                         <Link className="btn btn-outline-light btn-floating m-1" to="#" role="button">
-                            <i className="fab fa-github"></i>
+                            <i className="bi bi-github"></i>
                         </Link>
                     </section>
                 </div>
