@@ -5,7 +5,7 @@ import {API_URL} from "../../../config";
 
 const Dashboard = () => {
 
-    const [first, setFirst] = useState([])
+    const [first, setFirst] = useState({})
     function stat() {
         axios.get(`${API_URL}/stat`).then((e)=>{
             setFirst(e.data)
