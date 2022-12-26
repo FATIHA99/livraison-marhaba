@@ -10,7 +10,7 @@ const {userSigninValidator } = require('../middlewares/userValidator');
 const repas = require('../controllers/Repascontroller')
 const stati = require('../controllers/statistique')
 const route = express.Router();
-
+const {Payment} = require('../controllers/Payment')
 
 route.post('/signup',userSignupValidator ,user.createUser);
 route.post('/signin',userSigninValidator ,user.login);
@@ -29,7 +29,7 @@ route.delete('/DeleteDelivery/:id',livreur.DeleteDelivery)
 
 
 // start routes des repas
-const upload = require('../middlewares/upload')
+const upload = require('../middlewares/upload');
 
 route.post('/repas/add', upload.single('image'), repas.addRepas)
 route.get('/repas',repas.getAllrepas)
@@ -49,6 +49,7 @@ route.put('/commandes/updateStatus/:id',commande.updateStatus)
 
 //end routes des commandes 
 
+route.post('/payments', Payment)
 
 // start statistic
 
