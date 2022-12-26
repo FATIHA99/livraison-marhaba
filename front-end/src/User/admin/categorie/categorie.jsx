@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import {ToastContainer,toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { API_URL } from '../../../config';
 function Tail() {
   const [categorie, setCategorie] = useState([]);
 
-  //  dispaly one categorie 
+  //  dispaly one categorie  pour  la modification 
   const [oneCat, setCat] = useState({ label: '', description: '' })
+
   const fetchOne = async (id, event) => {
     event.preventDefault();
     const one = await axios.get(`${API_URL}/api/categories/getOne/${id}`)
     setCat(one.data)
-
   }
+
 
   // dispaly all  
   const fetchCategorie = async () => {
@@ -22,13 +23,11 @@ function Tail() {
 
   useEffect(() => {
     fetchCategorie()
-
   }, [])
 
   // delete 
   function deleteId(id, event) {
     event.preventDefault();
-
     axios.delete(`${API_URL}/api/categorie/delete/${id}`)
       .then((res) => {
         window.location.reload(false);
@@ -37,14 +36,42 @@ function Tail() {
 
   }
   // update
-  function updateId(id, event) {
-    event.preventDefault();
-    axios.put(`${API_URL}/api/categories/update/${id}`, oneCat)
-      .then((e) => {
-        window.location.reload(false);
-        toast.success('categorie modifié');
+  function updateId(id) {
+    // event.preventDefault();
+    // axios.put(`${API_URL}/api/categories/update/${id}`, oneCat)
+    //   .then((e) => {
+    //     window.location.reload(false);
+    //     toast.success('categorie modifié');
 
-      })
+    //   })
+
+
+
+  axios.put(`${API_URL}/api/categories/update/${id}`,oneCat)
+  .then((e)=>{
+    toast.success('categorie updated ')
+  })
+  .catch((err)=>{
+    toast.success(err)
+  })
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
 
@@ -75,18 +102,17 @@ function Tail() {
     <div>
       <h1 className="text-3xl font-bold font-mono "> Repas Categories </h1>
       <form className="shadow-sm p-3 mb-5 bg-body rounded " >
-        
-          <div>
-            <div key={oneCat._id} className="d-flex  container justify-content-center   ">
-              <div className="mb-3 me-5">
-                <input type="text" name="label" value={oneCat.label} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="label" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-              </div>
-              <div className="">
-                <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
-              </div>
-              <button type="button" className="btn btn-warning  ms-2 mb-4" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
+        <div>
+          <div key={oneCat._id} className="d-flex  container justify-content-center   ">
+            <div className="mb-3 me-5">
+              <input type="text" name="label" value={oneCat.label} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="label" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
             </div>
+            <div className="">
+              <input type="text" name="description" value={oneCat.description} onChange={(e) => { setCat({ ...oneCat, [e.target.name]: e.target.value }) }} placeholder="description" className="form-control" id="exampleInputPassword1" />
+            </div>
+            <button type="button" className="btn btn-warning  ms-2 mb-4" onClick={(e) => updateId(oneCat._id, e)} >modifier</button>
           </div>
+        </div>
       </form>
 
       <div className="d-flex flex-row row container  gap-3  ">
@@ -103,7 +129,6 @@ function Tail() {
             <tbody className="bg-white">
               {categorie.map((cat) => (
 
-
                 <tr key={cat._id} className="align-middle">
                   <td className="d-none">{cat._id}</td>
                   <td className="">{cat.label}</td>
@@ -116,7 +141,6 @@ function Tail() {
                   </td>
                 </tr>
 
-
               ))}
 
             </tbody>
@@ -124,7 +148,6 @@ function Tail() {
         </div>
 
 
-      
         <form onSubmit={submitForm} className="col-4 shadow-lg p-3 mb-5 bg-body rounded ">
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">label</label>
@@ -139,8 +162,7 @@ function Tail() {
           </div>
         </form>
 
-        
-      <ToastContainer/>
+        <ToastContainer />
       </div>
     </div>
   )

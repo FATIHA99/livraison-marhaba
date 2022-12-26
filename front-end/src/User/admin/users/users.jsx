@@ -7,6 +7,7 @@ import "toastr/build/toastr.css";
 
 function User() {
     const [delivery, setDelivery] = useState([]);
+    
     const fetchDelivery = async () => {
         const all = await axios.get(`${API_URL}/DisplayDelivery`);
         setDelivery(all.data)

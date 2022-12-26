@@ -9,7 +9,6 @@ const addCommande = async (req, res) => {
         res.send(err)
     }
 
-
 }
 
 function displayCommandes(req, res) {
@@ -18,18 +17,6 @@ function displayCommandes(req, res) {
             res.send(e)
         })
 }
-
-// const updateStatus = async(req,res)=>{
-   
-//     const {id}= req.params
-//     console.log(id)
-//     try {
-//      const findProduit = await Commande.findById({id})
-//     console.log(findProduit)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
 
 function  updateStatus (req, res) {
     const { id } = req.params
