@@ -5,18 +5,12 @@ const Commande = require("../models/Commandemodels");
 
 const statistiques = async(req, res) => {
 
-    const nuser = await User.aggregate([{ $group: { _id: null, sum: { $count: {} } } }])
-    const nrepas = await Repas.aggregate([{ $group: { _id: null, sum: { $count: {} } } }])
-    const ncategorie = await Categorie.aggregate([{ $group: { _id: null, sum: { $count: {} } } }])
-    const ncommande = await Commande.aggregate([{ $group: { _id: null, sum: { $count: {} } } }])
-
-    res.json({
-        user : nuser[0].sum,
-        repas : nrepas[0].sum,
-        categorie : ncategorie[0].sum,
-        commande : ncommande[0].sum
-
-    })
+    const nuser = await User.find().count()
+    const nrepas = await Repas.find().count()
+    const ncategorie = await Categorie.find().count()
+    const ncommande = await Commande.find().count()
+    
+    res.json({nuser, nrepas,ncategorie,ncommande })
 
 };
 

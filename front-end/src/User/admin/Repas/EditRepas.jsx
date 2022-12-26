@@ -39,7 +39,7 @@ const EditRepas = () => {
     }
 
   return (
-    <div className="card mt-5 col-8 mx-auto">
+    <div className="card mt-5 col-lg-8 mx-auto">
         <div className="card-header">
             <Link to={'/repas'} className="btn btn-sm btn-info m-2"><i className="bi bi-house-door text-white"></i></Link>
             UPDATE REPAS
@@ -59,7 +59,7 @@ const EditRepas = () => {
                 <label className="form-label">Categorie</label>
                 <select className='form-select' onChange={handleChange} name="categorie">
                     {categorie.map((e)=>(
-                        <option>{e.label}</option>
+                        <option value={e._id}>{e.label}</option>
                     ))}
                 </select>
             </div>   
