@@ -19,7 +19,6 @@ const AddRepas = () => {
     }
     const handlePhoto = (e)=>{
         setData({...data,image:e.target.files[0]})
-        console.log(data.image)
     }
 
     // 
@@ -33,7 +32,6 @@ const AddRepas = () => {
         fetchCategorie()
     
       }, [])
-    
 // 
     const onSub = async (e)=>{
         e.preventDefault()
@@ -43,7 +41,6 @@ const AddRepas = () => {
         formData.append('price',data.price)
         formData.append('categorie',data.categorie)
         formData.append('image',data.image)
-        console.log(formData)
         const add = await axios.post(API_URL+'/repas/add',formData)
         if(add){ 
             toast.success('created repas avec success')

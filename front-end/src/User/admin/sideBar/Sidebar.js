@@ -23,12 +23,12 @@ const Sidebar = () => {
     }
     return (
         <>
-            <input type="checkbox" id="menu" />
-            <div style={{ background: "#EDEDED", minHeight: "100vh" }} id="sid" className="col-lg-2 col-md-3 col-sm-4 col-6 text-center">
+            <input type="checkbox" id="menu" className='d-none'/>
+            <div style={{ background: "#EDEDED"}} id="sid" className="col-auto col-xl-2 min-vh-100 text-center">
                 <label htmlFor="menu" id="label" className="btn float-end"><i className="bi bi-arrow-left-circle fs-3"></i></label>
-                <h2 className="text-start">
-                    <span className="text-info">| </span>MARHABA
-                </h2>
+                <h3 className="text-start pt-2">
+                    <span className="text-info">|</span>MARHABA
+                </h3>
                 <br />
                 <img className="rounded rounded-circle w-50" src={img} />
                 <h4>{user.username}</h4>

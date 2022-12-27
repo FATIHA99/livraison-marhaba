@@ -125,15 +125,15 @@ const getUsers = (req,res)=>{
 
 const banieCompte = (req,res)=>{
     const id = req.params.id
-    User.findById({_id:id}).then((e)=>{
-        if (e.active) {
-            User.updateOne({_id : id},{active : false}).then((da)=>{
-                res.send('compte is bannie')
-            }).catch((err)=>{console.log(err)})
+    User.findById({_id : id}).then((data)=>{
+        if (data.active) {
+            User.updateOne({_id : id},{active : false}).then((e)=>{
+                res.send('bannie success')
+            })
         }else {
-            User.updateOne({_id : id},{active : true}).then((da)=>{
-                res.send('compte is active')
-            }).catch((err)=>{console.log(err)})
+            User.updateOne({_id : id},{active : true}).then((e)=>{
+                res.send('active success')
+            })
         }
     })
 }
