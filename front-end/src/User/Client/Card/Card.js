@@ -5,6 +5,8 @@ import Totalchekouat from './Totalchekouat';
 import './card.css';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
+import Navbar from '../../../core/Navbar';
+
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
 
@@ -13,11 +15,10 @@ const Card = () => {
     const dispatch = useDispatch()
 
     
-
-
     return (
 
         <Elements stripe={stripePromise}>
+             <Navbar />
         <main className="container">
             <div className=" d-flex flex-row justify-content-around mt-5">
             
@@ -47,7 +48,9 @@ const Card = () => {
                                         </td>
                                         <td>
                                             <div className="quantity d-flex align-items-center justify-content-center">
+                                            {product.count >1 && (
                                                 <span onClick={()=>dispatch(decProductCount(product))} class="quantity__minus"><span>-</span></span>
+                                            )}   
                                                 <span className='px-4'>{product.count}</span>
                                                 <span onClick={()=>dispatch(incProductCount(product))}  className="quantity__plus"><span>+</span></span>
                                             </div>

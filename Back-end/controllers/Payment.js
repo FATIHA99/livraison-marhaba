@@ -8,10 +8,11 @@ exports.Payment = async (req, res)=>{
           
             amount: req.body.amount,
             currency: "usd",
+            
 
         })
 
-
+        
         res.status(200).send(paymentIntent.client_secret);
 
     } catch(err){

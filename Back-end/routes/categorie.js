@@ -5,4 +5,4 @@ router.get('/categories',display)
 router.post('/categories',addCategorie)
 router.put('/categories/update/:id',update)
 router.get('/categories/getOne/:id',getOne)
-module.exports = router;
+module.exports = router;  

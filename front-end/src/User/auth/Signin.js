@@ -41,7 +41,7 @@ const Signin = () => {
                     navigate('/livreur/dashboard/commandes')
                 }
                 if (res.data.user.role === "client") {
-                    navigate('/')
+                    navigate('/product')
                 }
 
             })

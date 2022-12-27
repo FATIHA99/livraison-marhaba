@@ -11,16 +11,13 @@ const addRepas = (req,res)=>{
 }
 
 const getAllrepas = (req,res)=>{
-
-    repas.find()
-    .populate({
-        path : 'categorie',
-        model:Categorie
-    })
-    .then(e=>{
+    repas.find().populate({
+        path:'categorie',
+        model: Categorie
+    }).then((e)=>{
         res.send(e)
-    }).catch((error)=>{
-        res.send(error)
+    }).catch((err)=>{
+        res.send(err)
     })
 }
 
