@@ -10,17 +10,15 @@ const Product = () => {
 
 	const dispatch = useDispatch()
 
-	const [data, setData] = useState([])
-	const fetchRepas = () => {
-		axios.get(API_URL + '/repas').then((e) => {
+	const [data,setData] = useState([])
+	const fetchall = () =>{
+		axios.get(API_URL + '/repas')
+		.then((e) => {
 			setData(e.data)
-		})
+		})		
 	}
 
-	useEffect(() => {
-		fetchRepas()
-	}, [])
-
+	useEffect(()=>{fetchall()}, [])
 
 	return (
 		<>
@@ -37,7 +35,7 @@ const Product = () => {
 						</div>
 					</div>
 					<div class="row">
-						{data.map((repas) => (
+							{data.map((repas)=>(
 							<div class="col-md-6 col-lg-4 col-xl-3">
 								<div id="product-1" class="single-product">
 									<div style={{ background: `url("http://localhost:8080/images/${repas.image}") no-repeat center`, backgroundSize: 'cover', transition: 'all 0.3s;' }} class="part-1">

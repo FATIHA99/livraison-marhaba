@@ -1,6 +1,7 @@
 import { uniqBy } from 'lodash'; 
 
 export const addTocart = (item) =>{
+    
 
     let items = JSON.parse(localStorage.getItem('cart')) || [];
     items = uniqBy([{...item, count:1}, ...items],"_id");

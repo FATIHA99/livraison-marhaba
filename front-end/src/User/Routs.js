@@ -31,41 +31,39 @@ const Routs = () => {
     <Router>
 
       <Routes>
-
-        <Route element={<PrivateAdminRoute />}>
-          <Route element={<AdminDashboard />}>
-            <Route path={'/dash'} element={<DashboardAdmin />} />
-            <Route path='/categories' element={<Categorie />} />
-            <Route path='/users' element={<Users />} />
-            <Route path='/AddLivreur' element={<AddLivreur />} />
-            <Route path='/repas' element={<Repas />} />
-            <Route path='/EditRepas/:id' element={<EditRepas />} />
-            <Route path='/commands' element={<Commands />} />
-            <Route path='/client' element={<Client />} />
-          </Route>
-        </Route>
-        <Route element={<PrivateLivreurRoute />}>
-        <Route element={<LivreurDashboard />}>
-          <Route path='/livreur/dashboard/commandes' element={<Commands />} />
-        </Route>
-        </Route>
-
-        
         <Route element={<PrivateRoute />}>
+          <Route element={<PrivateAdminRoute />}>
+            <Route element={<AdminDashboard />}>
+              <Route path={'/dash'} element={<DashboardAdmin />} />
+              <Route path='/categories' element={<Categorie />} />
+              <Route path='/users' element={<Users />} />
+              <Route path='/AddLivreur' element={<AddLivreur />} />
+              <Route path='/repas' element={<Repas />} />
+              <Route path='/EditRepas/:id' element={<EditRepas />} />
+              <Route path='/commands' element={<Commands />} />
+              <Route path='/client' element={<Client />} />
+            </Route>
+          </Route>
+
+          <Route element={<PrivateLivreurRoute />}>
+            <Route element={<LivreurDashboard />}>
+              <Route path='/livreur/dashboard/commandes' element={<Commands />} />
+            </Route>
+          </Route>
+
+
+
           <Route path='/' element={<LandingPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
+        </Route>
 
-         
-            <Route path='/livreur/dashboard' element={<LivreurDashboard />} />
-          </Route>
-      
 
-        <Route path='/product' element={<Product/>} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/forgetpassword' element={<ForgetPass />} />
         <Route path='/resetpassword/:token' element={<ResetPassword />} />
-        <Route path='/client/cart' element={<Card/>} />
+        <Route path='/client/cart' element={<Card />} />
         <Route path='/notacces' element={< NotAcces />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
