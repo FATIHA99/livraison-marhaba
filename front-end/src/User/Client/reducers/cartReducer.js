@@ -1,7 +1,7 @@
 let items = JSON.parse(localStorage.getItem('cart')) || []
 
 let myState = {
-    products: items,
+    products: 'items',
     count: items.reduce((total, product)=>total + product.count, 0)
 }
 

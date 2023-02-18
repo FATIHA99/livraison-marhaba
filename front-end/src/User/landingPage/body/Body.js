@@ -2,8 +2,12 @@ import {useEffect,useState} from 'react'
 import buger from "../image/buger.jpg";
 import { API_URL } from "../../../config";
 import axios from "axios";
+import { useDispatch } from 'react-redux';
+import { addTocart } from '../../Client/actions/cartActions'
 
 const Body = () => {
+
+    const dispatch = useDispatch()
     const [data, setData] = useState([])
     const fetchRepas = () => {
         axios.get(API_URL+'/repas').then((e)=>{
@@ -28,10 +32,9 @@ const Body = () => {
                     <div className="card-body">
                         <h5 className="card-title fs-3">{e.name} <span className="text-secondary fs-5 fw-lighter">{e.price}</span></h5>
                         <p className="card-text">{e.description}</p>
-                        <form method="POST" action="addreserve">
+
                             <input type="hidden" name="reserve"/>
-                            <button type="submit" name="addreservation" style={{background: "#F79F1F"}} className="btn text-white">Order now</button>
-                        </form>
+                            <button onClick={()=>dispatch(addTocart(e))} name="addreservation" style={{background: "#F79F1F"}} className="btn text-white">Order now</button>
                     </div>
                 </div>
             </div>
